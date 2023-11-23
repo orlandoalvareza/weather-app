@@ -1,7 +1,18 @@
 import Header from "./components/Header";
 
 function App() {
-  const URL = `https://api.openweathermap.org/data/2.5/weather?q=london&appid=${process.env.REACT_APP_API_KEY}`;
+  const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=london&appid=${process.env.REACT_APP_API_KEY}`;
+
+  fetch(weatherUrl)
+    .then(response => {
+      return response.json();
+    })
+    .then(data => {
+      console.log(data);
+    })
+    .catch(err => {
+      console.log(err);
+    })
   
   return (
     <div className="App">
@@ -11,9 +22,11 @@ function App() {
         <input type="text" id="city" name="city"/>
         <button type="submit">Search</button>
       </form>
-      <div className="temperature-container">
-        28 *C
+      <div className="main-temp-container">
+        <h2>London</h2>
+        <span>28 °C</span>
       </div>
+      <div className="forecast-container"></div>
     </div>
   );
 }
