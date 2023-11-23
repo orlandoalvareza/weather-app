@@ -1,15 +1,16 @@
-import { useRef } from "react";
+import { useContext, useRef } from "react";
 
-import { CityInputProps } from '../../interfaces/city-input';
+import LocationContext from "../../context/location-context";
 
-const CityInput: React.FC<CityInputProps> = ({ onAddCity }) =>  {
+const CityInput = () =>  {
+  const ctx = useContext(LocationContext);
   const locationRef = useRef<HTMLInputElement>(null);
 
   const submitLocationHandler = (event: React.FormEvent) => {
     event.preventDefault();
-
+    
     const enteredCity = locationRef.current!.value;
-    onAddCity(enteredCity);
+    ctx.onChangeLocation(enteredCity);
   }
 
   return (

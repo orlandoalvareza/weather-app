@@ -4,7 +4,7 @@ import { LocationContextType, LocationContextProviderProps } from "../interfaces
 
 const LocationContext = React.createContext<LocationContextType>({
   location: 'miami',
-  onChangeLocation: (city: string) => {}
+  onChangeLocation: () => {}
 })
 
 export const LocationContextProvider: React.FC<LocationContextProviderProps> = (props) => {

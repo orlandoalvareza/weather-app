@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
-import { WeatherProps } from "../../interfaces/weather";
+import LocationContext from "../../context/location-context";
 import { ForecastData } from "../../interfaces/forecast-data";
 import { fetchForecastWeather } from "../../util/http";
 
@@ -178,18 +178,19 @@ const initialForecastData = {
   }
 }
 
-const ForecastWeather: React.FC<WeatherProps> = ({ location }) => {
+const ForecastWeather = () => {
+  const ctx = useContext(LocationContext);
   const [forecastWeatherData, setForecastWeatherData] = useState<ForecastData>(initialForecastData);
   const [hourlyData, setHourlyData] = useState<any>([]);
 
   useEffect(() => {
     async function getCurrentWeather() {
-      const data = await fetchForecastWeather(location);
+      const data = await fetchForecastWeather(ctx.location);
       setForecastWeatherData(data);
       setHourlyData(data.list.slice(0,8))
     }
     getCurrentWeather();
-  }, [location])
+  }, [ctx.location])
 
   const filteredItems = forecastWeatherData.list.filter((item, index) => (index + 1) % 8 === 0);
  

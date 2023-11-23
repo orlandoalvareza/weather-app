@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
+import LocationContext from "../../context/location-context";
 import DateTime from "./DateTime";
 import { fetchCurrentWeather } from "../../util/http";
 import { WeatherData } from "../../interfaces/weather-data";
-import { WeatherProps } from "../../interfaces/weather";
 
 const initialWeatherData: WeatherData = {
   coord: {},
@@ -46,17 +46,18 @@ const initialWeatherData: WeatherData = {
   cod: 0,
 };
 
-const CurrentWeather: React.FC<WeatherProps> = ({ location }) => {
+const CurrentWeather = () => {
+  const ctx = useContext(LocationContext);
   const [weatherData, setWeatherData] = useState<WeatherData>(initialWeatherData);  
 
   useEffect(() => {
     async function getCurrentWeather() {
-      const data = await fetchCurrentWeather(location);
+      const data = await fetchCurrentWeather(ctx.location);
       setWeatherData(data);
     }
 
     getCurrentWeather();
-  }, [location])
+  }, [ctx])
 
   const cityName = weatherData.name;
   const country = weatherData.sys.country;

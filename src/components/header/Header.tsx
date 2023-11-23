@@ -1,7 +1,9 @@
-const Header: React.FC = () => {
+import CityInput from "./CityInput";
+
+const Header = () => {
   return (
     <header>
-      <h1>Weather</h1>
+      <CityInput/>
       <button>°F-°C</button>
     </header>
   )
