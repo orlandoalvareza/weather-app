@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 
+import DateTime from "./DateTime";
 import { fetchCurrentWeather } from "../util/http";
 import { WeatherData } from "../interfaces/weather-data";
 import { CurrentWeatherProps } from "../interfaces/current-weather";
@@ -32,7 +33,13 @@ const initialWeatherData: WeatherData = {
     all: 0
   },
   dt: 0,
-  sys: {},
+  sys: {
+    type: 0,
+    id: 0,
+    country: 'US',
+    sunrise: 0,
+    sunset: 0
+  },
   timezone: 0,
   id: 0,
   name: "",
@@ -52,7 +59,7 @@ const CurrentWeather: React.FC<CurrentWeatherProps> = ({ location }) => {
   }, [location])
 
   const cityName = weatherData.name;
-  const date = new Date(weatherData.dt * 1000).toLocaleString();
+  const country = weatherData.sys.country;
 
   const currentWeather = Math.round(weatherData.main.temp - 273);
   const feelsLikeWeather = Math.round(weatherData.main.feels_like - 273);
@@ -66,8 +73,8 @@ const CurrentWeather: React.FC<CurrentWeatherProps> = ({ location }) => {
   return (
     <div className="current-weather-container">
       <div className="location-container">
-        <h2>{cityName}</h2>
-        <span>{date}</span>
+        <h2>{cityName}, {country}</h2>
+        <DateTime currentDate={weatherData.dt}/>
       </div>
       <div className="temp-container">
         <span>{currentWeather} °C</span>

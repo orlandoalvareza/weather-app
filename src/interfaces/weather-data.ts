@@ -9,7 +9,7 @@ export interface WeatherData {
     all: number
   };
   dt: number;
-  sys: {};
+  sys: Sys;
   timezone: number;
   id: number;
   name: string;
@@ -35,4 +35,12 @@ interface Weather {
   main: string;
   description: string;
   icon: string
+}
+
+interface Sys {
+  type: number;
+  id: number;
+  country: string;
+  sunrise: number;
+  sunset: number;
 }
