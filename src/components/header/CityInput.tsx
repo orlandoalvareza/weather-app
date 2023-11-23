@@ -1,6 +1,6 @@
 import { useRef } from "react";
 
-import { CityInputProps } from '../interfaces/city-input';
+import { CityInputProps } from '../../interfaces/city-input';
 
 const CityInput: React.FC<CityInputProps> = ({ onAddCity }) =>  {
   const locationRef = useRef<HTMLInputElement>(null);

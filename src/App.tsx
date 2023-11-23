@@ -1,9 +1,9 @@
 import { useState } from "react";
 
-import Header from "./components/Header";
-import CityInput from "./components/CityInput";
-import CurrentWeather from "./components/CurrentWeather";
-import ForecastWeather from "./components/ForecastWeather";
+import Header from "./components/header/Header";
+import CityInput from "./components/header/CityInput";
+import CurrentWeather from "./components/current-weather/CurrentWeather";
+import ForecastWeather from "./components/forecast/ForecastWeather";
 
 function App() {
   const [location, setLocation] = useState('miami');

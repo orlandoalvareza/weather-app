@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 
 import DateTime from "./DateTime";
-import { fetchCurrentWeather } from "../util/http";
-import { WeatherData } from "../interfaces/weather-data";
-import { WeatherProps } from "../interfaces/weather";
+import { fetchCurrentWeather } from "../../util/http";
+import { WeatherData } from "../../interfaces/weather-data";
+import { WeatherProps } from "../../interfaces/weather";
 
 const initialWeatherData: WeatherData = {
   coord: {},

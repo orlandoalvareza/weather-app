@@ -1,4 +1,4 @@
-import { CurrentDateProps } from "../interfaces/current-date";
+import { CurrentDateProps } from "../../interfaces/current-date";
 
 const DateTime: React.FC<CurrentDateProps> = ({ currentDate }) => {
   const date = new Date(currentDate * 1000);
