@@ -1,11 +1,13 @@
 export interface WeatherData {
   coord: {};
-  weather: [];
+  weather: Weather[];
   base: string;
   main: MainWeatherData;
   visibility: number;
   wind: WindWeatherData;
-  clouds: {};
+  clouds: {
+    all: number
+  };
   dt: number;
   sys: {};
   timezone: number;
@@ -26,4 +28,11 @@ interface MainWeatherData {
 interface WindWeatherData {
   speed: number;
   deg: number
+}
+
+interface Weather {
+  id: number;
+  main: string;
+  description: string;
+  icon: string
 }
