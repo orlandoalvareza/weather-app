@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import DateTime from "./DateTime";
 import { fetchCurrentWeather } from "../util/http";
 import { WeatherData } from "../interfaces/weather-data";
-import { CurrentWeatherProps } from "../interfaces/current-weather";
+import { WeatherProps } from "../interfaces/weather";
 
 const initialWeatherData: WeatherData = {
   coord: {},
@@ -46,7 +46,7 @@ const initialWeatherData: WeatherData = {
   cod: 0,
 };
 
-const CurrentWeather: React.FC<CurrentWeatherProps> = ({ location }) => {
+const CurrentWeather: React.FC<WeatherProps> = ({ location }) => {
   const [weatherData, setWeatherData] = useState<WeatherData>(initialWeatherData);  
 
   useEffect(() => {
