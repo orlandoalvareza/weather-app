@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 import { WeatherData } from './interfaces/weather-data';
 import Header from "./components/Header";
+import CityInput from "./components/CityInput";
 
 const initialWeatherData: WeatherData = {
   coord: {},
@@ -30,9 +31,14 @@ const initialWeatherData: WeatherData = {
 };
 
 function App() {
+  const [location, setLocation] = useState('miami');
   const [weatherData, setWeatherData] = useState<WeatherData>(initialWeatherData);
 
+  const apiKey = process.env.REACT_APP_API_KEY;
+
   useEffect(() => {
+    const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}`;
+
     fetch(weatherUrl)
       .then((response) => response.json())
       .then((data) => {
@@ -42,21 +48,18 @@ function App() {
         console.error(error);
       });
 
-  }, [])
-    
-  const apiKey = process.env.REACT_APP_API_KEY;
-  const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=miami&appid=${apiKey}`;
+  }, [location])
+
+  const addCityHandler = (enteredCity: string) => {
+    setLocation(enteredCity);
+  }
 
   const date = new Date(weatherData.dt * 1000).toLocaleString();
   
   return (
     <div className="App">
       <Header/>
-      <form>
-        <label htmlFor="city">Search for a city</label>
-        <input type="text" id="city" name="city"/>
-        <button type="submit">Search</button>
-      </form>
+      <CityInput onAddCity={addCityHandler}/>
       <div className="main-container">
         <div className="location-container">
           <h2>{weatherData.name}</h2>
