@@ -1,11 +1,13 @@
 import { useContext, useEffect, useState } from "react";
 
 import LocationContext from "../../context/location-context";
-import { fetchCurrentWeather } from "../../util/http";
+import { LocationContextType } from "../../interfaces/location-context";
 import { WeatherData } from "../../interfaces/current-weather";
+import { fetchCurrentWeather } from "../../util/http";
+import { getCurrentDate } from "../../util/time";
 
 const CurrentWeather = () => {
-  const ctx = useContext(LocationContext);
+  const ctx = useContext<LocationContextType>(LocationContext);
   const [weatherData, setWeatherData] = useState<WeatherData>({});  
 
   useEffect(() => {
@@ -17,24 +19,10 @@ const CurrentWeather = () => {
     getCurrentWeather();
   }, [ctx])
 
-  const getCurrentDate = (currentDate: number | undefined) => {
-    if (currentDate) {
-      const date = new Date(currentDate * 1000);
-
-      const year = date.getFullYear();
-      const month = date.toLocaleDateString('en-US', { month: 'short' });;
-      const day = date.getDate();
-      const dayOfWeek = date.toLocaleDateString('en-US', { weekday: 'long' });
-    
-      return `${dayOfWeek}, ${month} ${day} ${year}`;
-    }
-    return 'hola';
-  }
-
   const cityName = weatherData.name;
   const country = weatherData.sys?.country;
 
-  const date = getCurrentDate(weatherData.dt);
+  const date = weatherData.dt && getCurrentDate(weatherData.dt);
 
   const currentWeather = Math.round(weatherData.main?.temp! - 273);
   const feelsLikeWeather = Math.round(weatherData.main?.feels_like! - 273);

@@ -1,30 +1,32 @@
 import { useContext, useEffect, useState } from "react";
 
 import LocationContext from "../../context/location-context";
-import { DailyForecastData } from "../../interfaces/daily-forecast";
+import { DailyForecastData, WeatherListForecast } from "../../interfaces/daily-forecast";
+import { LocationContextType } from "../../interfaces/location-context";
 import { fetchForecastWeather } from "../../util/http";
+import { getWeekDay } from "../../util/time";
 
 const DailyForecast = () => {
-  const ctx = useContext(LocationContext);
-  const [forecastWeatherData, setForecastWeatherData] = useState<DailyForecastData>({});
+  const ctx = useContext<LocationContextType>(LocationContext);
+  const [dailyForecastData, setDailyForecastData] = useState<DailyForecastData>({});
 
   useEffect(() => {
     async function getCurrentWeather() {
-      const data = await fetchForecastWeather(ctx.location);
-      setForecastWeatherData(data);
+      const forecastData = await fetchForecastWeather(ctx.location);
+      setDailyForecastData(forecastData);
     }
     getCurrentWeather();
   }, [ctx.location])
 
-  const filteredItems = forecastWeatherData.list?.filter((item, index) => (index + 1) % 8 === 0);
+  const filteredDailyForecast = dailyForecastData.list?.filter((forecast, index) => (index + 1) % 8 === 0);
  
   return (
     <div className="daily-forecast">
       <h2>Daily forecast</h2>
       <ul>
-        {filteredItems?.map((dailyForecast: any) => (
+        {filteredDailyForecast?.map((dailyForecast: WeatherListForecast) => (
           <li key={dailyForecast.dt}>
-            <p>{new Date(dailyForecast.dt * 1000).toUTCString()}</p>
+            <p>{getWeekDay(dailyForecast.dt)}</p>
             <p>icon</p>
             <p>{Math.round(dailyForecast.main.temp - 273)} °C</p>
             <p>{dailyForecast.weather[0].description}</p>

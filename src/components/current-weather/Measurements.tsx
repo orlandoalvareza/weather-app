@@ -2,10 +2,12 @@ import { useContext, useEffect, useState } from "react";
 
 import LocationContext from "../../context/location-context";
 import { WeatherData } from "../../interfaces/current-weather";
+import { LocationContextType } from "../../interfaces/location-context";
 import { fetchCurrentWeather } from "../../util/http";
+import { getFormattedTime } from "../../util/time";
 
 const Measurements = () => {
-  const ctx = useContext(LocationContext);
+  const ctx = useContext<LocationContextType>(LocationContext);
   const [measurementsData, setMeasurementsData] = useState<WeatherData>({});  
 
   useEffect(() => {
@@ -17,19 +19,8 @@ const Measurements = () => {
     getCurrentWeather();
   }, [ctx])
 
-  const getTime = (timeStamp: number) => {
-    const date = new Date(timeStamp * 1000);
-    const hours = date.getHours();
-    const minutes = date.getMinutes();
-
-    const meridiemIndicator = hours >= 12 ? 'PM' : 'AM';
-    const adjustedHours = hours % 12 || 12;
-
-    return `${adjustedHours}:${minutes < 10 ? '0' : ''}${minutes} ${meridiemIndicator}`;
-  }
-
-  const sunrise = getTime(measurementsData.sys?.sunrise!);
-  const sunset = getTime(measurementsData.sys?.sunset!);
+  const sunrise = getFormattedTime(measurementsData.sys?.sunrise!);
+  const sunset = getFormattedTime(measurementsData.sys?.sunset!);
 
   const pressure = measurementsData.main?.pressure;
   const humidity = measurementsData.main?.humidity;

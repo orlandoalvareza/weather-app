@@ -1,9 +1,10 @@
 import { useContext, useRef } from "react";
 
 import LocationContext from "../../context/location-context";
+import { LocationContextType } from "../../interfaces/location-context";
 
 const CityInput = () =>  {
-  const ctx = useContext(LocationContext);
+  const ctx = useContext<LocationContextType>(LocationContext);
   const locationRef = useRef<HTMLInputElement>(null);
 
   const submitLocationHandler = (event: React.FormEvent) => {
