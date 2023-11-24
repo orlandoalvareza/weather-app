@@ -1,9 +1,9 @@
-export interface ForecastData {
-  cod: string;
-  message: number;
-  cnt: number;
-  list: WeatherListItem[];
-  city: City;
+export interface DailyForecastData {
+  cod?: string;
+  message?: number;
+  cnt?: number;
+  list?: WeatherListItem[];
+  city?: City;
 }
 
 interface WeatherListItem {

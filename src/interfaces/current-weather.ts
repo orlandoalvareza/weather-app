@@ -1,19 +1,19 @@
 export interface WeatherData {
-  coord: {};
-  weather: Weather[];
-  base: string;
-  main: MainWeatherData;
-  visibility: number;
-  wind: WindWeatherData;
-  clouds: {
+  coord?: {};
+  weather?: Weather[];
+  base?: string;
+  main?: MainWeatherData;
+  visibility?: number;
+  wind?: WindWeatherData;
+  clouds?: {
     all: number
   };
-  dt: number;
-  sys: Sys;
-  timezone: number;
-  id: number;
-  name: string;
-  cod: number
+  dt?: number;
+  sys?: Sys;
+  timezone?: number;
+  id?: number;
+  name?: string;
+  cod?: number
 }
 
 interface MainWeatherData {
