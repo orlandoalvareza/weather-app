@@ -1,54 +1,12 @@
 import { useContext, useEffect, useState } from "react";
 
 import LocationContext from "../../context/location-context";
-import DateTime from "./DateTime";
 import { fetchCurrentWeather } from "../../util/http";
 import { WeatherData } from "../../interfaces/weather-data";
 
-const initialWeatherData: WeatherData = {
-  coord: {},
-  weather: [
-    {
-      id: 0,
-      main: "Clouds",
-      description: "broken clouds",
-      icon: "04n"
-    }
-  ],
-  base: "",
-  main: {
-    temp: 0,
-    feels_like: 0,
-    temp_min: 0,
-    temp_max: 0,
-    pressure: 0,
-    humidity: 0,
-  },
-  visibility: 0,
-  wind: {
-    speed: 0,
-    deg: 0
-  },
-  clouds: {
-    all: 0
-  },
-  dt: 0,
-  sys: {
-    type: 0,
-    id: 0,
-    country: 'US',
-    sunrise: 0,
-    sunset: 0
-  },
-  timezone: 0,
-  id: 0,
-  name: "",
-  cod: 0,
-};
-
 const CurrentWeather = () => {
   const ctx = useContext(LocationContext);
-  const [weatherData, setWeatherData] = useState<WeatherData>(initialWeatherData);  
+  const [weatherData, setWeatherData] = useState<WeatherData | null>(null);  
 
   useEffect(() => {
     async function getCurrentWeather() {
@@ -59,38 +17,40 @@ const CurrentWeather = () => {
     getCurrentWeather();
   }, [ctx])
 
-  const cityName = weatherData.name;
-  const country = weatherData.sys.country;
+  const getCurrentDate = (currentDate: number) => {
+    const date = new Date(currentDate * 1000);
 
-  const currentWeather = Math.round(weatherData.main.temp - 273);
-  const feelsLikeWeather = Math.round(weatherData.main.feels_like - 273);
+    const year = date.getFullYear();
+    const month = date.toLocaleDateString('en-US', { month: 'short' });;
+    const day = date.getDate();
+    const dayOfWeek = date.toLocaleDateString('en-US', { weekday: 'long' });
+  
+    return `${dayOfWeek}, ${month} ${day} ${year}`;
+  }
 
-  const weatherDescription = weatherData.weather[0].description.toUpperCase();
-  const pressure = weatherData.main.pressure;
-  const humidity = weatherData.main.humidity;
-  const wind = weatherData.wind.speed;
-  const cloudiness = weatherData.clouds.all;
+  const cityName = weatherData && weatherData.name;
+  const country = weatherData && weatherData.sys.country;
+
+  const date = weatherData && getCurrentDate(weatherData.dt);
+
+  const currentWeather = weatherData && Math.round(weatherData.main.temp - 273);
+  const feelsLikeWeather = weatherData && Math.round(weatherData.main.feels_like - 273);
+  const weatherDescription = weatherData && weatherData.weather[0].description.toUpperCase();
+  const maxTemp = weatherData && Math.round(weatherData.main["temp_max"] - 273);
+  const minTemp = weatherData && Math.round(weatherData.main["temp_min"] - 273);
 
   return (
     <div className="current-weather-container">
       <div className="location-container">
         <h2>{cityName}, {country}</h2>
-        <DateTime currentDate={weatherData.dt}/>
+        <h2>{date}</h2>
       </div>
       <div className="temp-container">
         <span>{currentWeather} °C</span>
         <span>Feels like {feelsLikeWeather} °C</span>
-      </div>
-      <div className="extra-measurements-container">
-        <div>
-          <span>{weatherDescription}</span>
-        </div>
-        <div>
-          <p>Pressure: {pressure} hPa</p>
-          <p>Humidity: {humidity} %</p>
-          <p>Wind: {wind} m/s</p>
-          <p>Cloudiness: {cloudiness} %</p>
-        </div>
+        <span>{weatherDescription}</span>
+        <span>H: {maxTemp} °</span>
+        <span>L: {minTemp} °</span>
       </div>
     </div>
   )
