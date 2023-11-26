@@ -1,0 +1,22 @@
+.daily-forecast {
+  width: 65%;
+  padding-right: 15px;
+}
+
+.daily-forecast > h2 {
+  margin-bottom: 15px;
+}
+
+.forecast-list,
+.forecast {
+  display: flex;
+}
+
+.forecast-list {
+  flex-direction: column;
+  gap: 10px;
+}
+
+.forecast {
+  justify-content: space-between;
+}

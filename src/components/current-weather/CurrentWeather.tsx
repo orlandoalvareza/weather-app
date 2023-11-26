@@ -5,6 +5,7 @@ import { LocationContextType } from "../../interfaces/location-context";
 import { WeatherData } from "../../interfaces/current-weather";
 import { fetchCurrentWeather } from "../../util/http";
 import { getCurrentDate } from "../../util/time";
+import modules from './CurrentWeather.module.css';
 
 const CurrentWeather = () => {
   const ctx = useContext<LocationContextType>(LocationContext);
@@ -24,24 +25,30 @@ const CurrentWeather = () => {
 
   const date = weatherData.dt && getCurrentDate(weatherData.dt);
 
-  const currentWeather = Math.round(weatherData.main?.temp! - 273);
+  const temp = Math.round(weatherData.main?.temp! - 273);
   const feelsLikeWeather = Math.round(weatherData.main?.feels_like! - 273);
   const weatherDescription = weatherData.weather && weatherData.weather[0].description.toUpperCase();
   const maxTemp = weatherData.main && Math.round(weatherData.main["temp_max"] - 273);
   const minTemp = weatherData.main &&  Math.round(weatherData.main["temp_min"] - 273);
 
   return (
-    <div className="current-weather-container">
-      <div className="location-container">
-        <h2>{cityName}, {country}</h2>
-        <h2>{date}</h2>
+    <div className={modules["current-weather-container"]}>
+      <div className={modules["location-container"]}>
+        <h2>
+          <span>{cityName}</span>, {country}
+        </h2>
+        <h3>{date}</h3>
       </div>
-      <div className="temp-container">
-        <span>{currentWeather} °C</span>
-        <span>Feels like {feelsLikeWeather} °C</span>
-        <span>{weatherDescription}</span>
-        <span>H: {maxTemp} °</span>
-        <span>L: {minTemp} °</span>
+      <div className={modules["temp-container"]}>
+        <h1>{temp} °C</h1>
+        <div>
+          <p>Feels like {feelsLikeWeather} °C</p>
+          <p>{weatherDescription}</p>
+          <div>
+            <span>H: {maxTemp} °</span>
+            <span>L: {minTemp} °</span>
+          </div>
+        </div>
       </div>
     </div>
   )

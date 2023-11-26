@@ -5,6 +5,7 @@ import { WeatherData } from "../../interfaces/current-weather";
 import { LocationContextType } from "../../interfaces/location-context";
 import { fetchCurrentWeather } from "../../util/http";
 import { getFormattedTime } from "../../util/time";
+import modules from './Measurements.module.css';
 
 const Measurements = () => {
   const ctx = useContext<LocationContextType>(LocationContext);
@@ -28,7 +29,7 @@ const Measurements = () => {
   const cloudiness = measurementsData.clouds?.all;
 
   return (
-    <div className="measurements-container">
+    <div className={modules["measurements-container"]}>
       <p>Sunrise: {sunrise}</p>
       <p>Sunset: {sunset}</p>
       <p>Pressure: {pressure} hPa</p>

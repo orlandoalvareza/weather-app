@@ -5,6 +5,7 @@ import { fetchForecastWeather } from "../../util/http";
 import { LocationContextType } from "../../interfaces/location-context";
 import { HourlyForecastData } from "../../interfaces/hourly-forecast";
 import { getFormattedTime } from "../../util/time";
+import modules from './HourlyForecast.module.css';
 
 const HourlyForecast = () => {
   const ctx = useContext<LocationContextType>(LocationContext);
@@ -19,11 +20,11 @@ const HourlyForecast = () => {
   }, [ctx.location])
 
   return (
-    <div className="hourly-forecast">
+    <div className={modules["hourly-forecast"]}>
       <h2>Hourly forecast</h2>
-      <ul>
+      <ul className={modules["forecast-list"]}>
         {hourlyForecastData.map((hourlyForecast: HourlyForecastData) => (
-          <li key={hourlyForecast.dt}>
+          <li key={hourlyForecast.dt} className={modules.forecast}>
             <p>{getFormattedTime(hourlyForecast.dt)}</p>
             <p>icon</p>
             <p>{Math.round(hourlyForecast.main.temp - 273)} °C</p>

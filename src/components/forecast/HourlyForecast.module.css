@@ -1,0 +1,16 @@
+.hourly-forecast {
+  background: skyblue;
+}
+
+.hourly-forecast > h2 {
+  margin-bottom: 15px;
+}
+
+.forecast-list {
+  display: flex;
+  justify-content: space-between;
+}
+
+.forecast {
+  width: 11%;
+}

@@ -1,0 +1,13 @@
+.current-weather-container {
+  background: sandybrown;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 90px;
+}
+
+.temp-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}

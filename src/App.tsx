@@ -3,6 +3,7 @@ import CurrentWeather from "./components/current-weather/CurrentWeather";
 import DailyForecast from "./components/forecast/DailyForecast";
 import Measurements from "./components/current-weather/Measurements";
 import HourlyForecast from "./components/forecast/HourlyForecast";
+import './App.css';
 
 function App() {
   return (
@@ -10,10 +11,10 @@ function App() {
       <Header/>
       <CurrentWeather/>
       <HourlyForecast/>
-      <div>
+      <section className="App__section">
         <DailyForecast/>
         <Measurements/>
-      </div>
+      </section>
     </div>
   );
 }

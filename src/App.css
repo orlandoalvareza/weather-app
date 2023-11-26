@@ -1,0 +1,13 @@
+.App, 
+.App__section {
+  display: flex;
+  justify-content: space-between;
+}
+
+.App {
+  flex-direction: column;
+  background: silver;
+  width: 100%;
+  height: 100vh;
+  padding: 20px;
+}

@@ -5,6 +5,7 @@ import { DailyForecastData, WeatherListForecast } from "../../interfaces/daily-f
 import { LocationContextType } from "../../interfaces/location-context";
 import { fetchForecastWeather } from "../../util/http";
 import { getWeekDay } from "../../util/time";
+import modules from './DailyForecast.module.css';
 
 const DailyForecast = () => {
   const ctx = useContext<LocationContextType>(LocationContext);
@@ -21,15 +22,14 @@ const DailyForecast = () => {
   const filteredDailyForecast = dailyForecastData.list?.filter((forecast, index) => (index + 1) % 8 === 0);
  
   return (
-    <div className="daily-forecast">
+    <div className={modules["daily-forecast"]}>
       <h2>Daily forecast</h2>
-      <ul>
+      <ul className={modules["forecast-list"]}>
         {filteredDailyForecast?.map((dailyForecast: WeatherListForecast) => (
-          <li key={dailyForecast.dt}>
+          <li key={dailyForecast.dt} className={modules.forecast}>
             <p>{getWeekDay(dailyForecast.dt)}</p>
             <p>icon</p>
             <p>{Math.round(dailyForecast.main.temp - 273)} °C</p>
-            <p>{dailyForecast.weather[0].description}</p>
           </li>
         ))}
       </ul>
