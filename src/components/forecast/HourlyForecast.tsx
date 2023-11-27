@@ -19,15 +19,23 @@ const HourlyForecast = () => {
     getCurrentWeather();
   }, [ctx.location])
 
+  const getIcon = (icon: string) => {
+    return `http://openweathermap.org/img/w/${icon}.png`;
+  }
+
   return (
     <div className={modules["hourly-forecast"]}>
       <h2>Hourly forecast</h2>
       <ul className={modules["forecast-list"]}>
-        {hourlyForecastData.map((hourlyForecast: HourlyForecastData) => (
+        {hourlyForecastData.map((hourlyForecast: HourlyForecastData, index: number) => (
           <li key={hourlyForecast.dt} className={modules.forecast}>
-            <p>{getFormattedTime(hourlyForecast.dt)}</p>
-            <p>icon</p>
-            <p>{Math.round(hourlyForecast.main.temp - 273)} °C</p>
+            <p className={modules["forecast-time"]}>
+              {getFormattedTime(hourlyForecast.dt)}
+            </p>
+            <img src={getIcon(hourlyForecastData[index].weather[0].icon)} alt="forecast-icon"/>
+            <p className={modules["forecast-temp"]}>
+              {Math.round(hourlyForecast.main.temp - 273)} °C
+            </p>
             <p>{hourlyForecast.weather[0].description}</p>
           </li>
         ))}

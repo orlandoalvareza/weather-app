@@ -5,7 +5,6 @@ import { LocationContextType } from "../../interfaces/location-context";
 import { WeatherData } from "../../interfaces/current-weather";
 import { fetchCurrentWeather } from "../../util/http";
 import { getCurrentDate } from "../../util/time";
-import brokenClouds from '../../assets/icons8-sun-behind-cloud-48.png';
 import modules from './CurrentWeather.module.css';
 
 const CurrentWeather = () => {
@@ -23,8 +22,10 @@ const CurrentWeather = () => {
 
   const cityName = weatherData.name;
   const country = weatherData.sys?.country;
-
   const date = weatherData.dt && getCurrentDate(weatherData.dt);
+
+  const icon = weatherData.weather && weatherData.weather[0].icon;
+  const iconSrc = `http://openweathermap.org/img/w/${icon}.png`;
 
   const temp = Math.round(weatherData.main?.temp! - 273);
   const feelsLikeWeather = Math.round(weatherData.main?.feels_like! - 273);
@@ -41,7 +42,7 @@ const CurrentWeather = () => {
         <h3>{date}</h3>
       </div>
       <div className={modules["weather-container"]}>
-        <img src={brokenClouds} alt="weather-icon"/>
+        <img src={iconSrc} alt="weather-icon"/>
         <p>{weatherDescription}</p>
       </div>
       <div className={modules["temp-container"]}>

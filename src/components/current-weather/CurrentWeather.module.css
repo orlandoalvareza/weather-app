@@ -9,7 +9,6 @@
   justify-content: space-between;
   align-items: center;
   height: 120px;
-  padding-inline: 20px;
 }
 
 .location-container > h2 {
@@ -30,7 +29,7 @@
 }
 
 .weather-container > img {
-  width: 80px;
+  width: 70px;
   margin-bottom: 5px;
 }
 

@@ -1,16 +1,40 @@
-.hourly-forecast {
-  background: skyblue;
-}
-
 .hourly-forecast > h2 {
+  font-weight: 500;
   margin-bottom: 15px;
 }
 
 .forecast-list {
   display: flex;
   justify-content: space-between;
+  padding-block: 15px;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
 }
 
 .forecast {
-  width: 11%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 13%;
+}
+
+.forecast:not(:last-child) {
+  border-right: 1px solid black;
+}
+
+.forecast-time {
+  font-size: 17px;
+  width: 100%;
+  text-align: center;
+}
+
+.forecast img {
+  width: 50px;
+}
+
+.forecast-temp {
+  font-size: 20px;
+  width: 100%;
+  text-align: center;
 }

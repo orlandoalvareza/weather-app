@@ -1,10 +1,11 @@
 .daily-forecast {
   width: 65%;
-  padding-right: 15px;
+  padding: 15px;
 }
 
 .daily-forecast > h2 {
-  margin-bottom: 15px;
+  font-weight: 500;
+  margin-bottom: 10px;
 }
 
 .forecast-list,
@@ -14,9 +15,19 @@
 
 .forecast-list {
   flex-direction: column;
-  gap: 10px;
+  gap: 5px;
 }
 
 .forecast {
   justify-content: space-between;
+  align-items: center;
+}
+
+.forecast p {
+  font-size: 18px;
+  width: 90px;
+}
+
+.forecast span {
+  font-size: 18px;
 }

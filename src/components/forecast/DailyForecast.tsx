@@ -19,17 +19,21 @@ const DailyForecast = () => {
     getCurrentWeather();
   }, [ctx.location])
 
+  const getIcon = (icon: string) => {
+    return `http://openweathermap.org/img/w/${icon}.png`;
+  }
+
   const filteredDailyForecast = dailyForecastData.list?.filter((forecast, index) => (index + 1) % 8 === 0);
- 
+
   return (
     <div className={modules["daily-forecast"]}>
       <h2>Daily forecast</h2>
       <ul className={modules["forecast-list"]}>
-        {filteredDailyForecast?.map((dailyForecast: WeatherListForecast) => (
+        {filteredDailyForecast?.map((dailyForecast: WeatherListForecast, index: number) => (
           <li key={dailyForecast.dt} className={modules.forecast}>
             <p>{getWeekDay(dailyForecast.dt)}</p>
-            <p>icon</p>
-            <p>{Math.round(dailyForecast.main.temp - 273)} °C</p>
+            <img src={getIcon(dailyForecastData.list![index].weather[0].icon)} alt="forecast-icon" />
+            <span>{Math.round(dailyForecast.main.temp - 273)} °C</span>
           </li>
         ))}
       </ul>
