@@ -5,6 +5,7 @@ import { LocationContextType } from "../../interfaces/location-context";
 import { WeatherData } from "../../interfaces/current-weather";
 import { fetchCurrentWeather } from "../../util/http";
 import { getCurrentDate } from "../../util/time";
+import brokenClouds from '../../assets/icons8-sun-behind-cloud-48.png';
 import modules from './CurrentWeather.module.css';
 
 const CurrentWeather = () => {
@@ -39,15 +40,21 @@ const CurrentWeather = () => {
         </h2>
         <h3>{date}</h3>
       </div>
+      <div className={modules["weather-container"]}>
+        <img src={brokenClouds} alt="weather-icon"/>
+        <p>{weatherDescription}</p>
+      </div>
       <div className={modules["temp-container"]}>
-        <h1>{temp} °C</h1>
-        <div>
+        <h1 className={modules["temp-container__temp"]}>
+          {temp}
+          <span>°C</span>
+        </h1>
+        <div className={modules["temp-container__aside"]}>
           <p>Feels like {feelsLikeWeather} °C</p>
-          <p>{weatherDescription}</p>
-          <div>
+          <section className={modules["temp-container__aside-section"]}>
             <span>H: {maxTemp} °</span>
             <span>L: {minTemp} °</span>
-          </div>
+          </section>
         </div>
       </div>
     </div>
