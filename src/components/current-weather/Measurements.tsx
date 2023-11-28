@@ -27,6 +27,7 @@ const Measurements = () => {
   const humidity = measurementsData.main?.humidity;
   const wind = measurementsData.wind?.speed;
   const cloudiness = measurementsData.clouds?.all;
+  const visibility = measurementsData?.visibility;
 
   return (
     <div className={modules["measurements-container"]}>
@@ -36,6 +37,7 @@ const Measurements = () => {
       <p>Humidity: {humidity} %</p>
       <p>Wind: {wind} m/s</p>
       <p>Cloudiness: {cloudiness} %</p>
+      <p>Visibility: {visibility}</p>
     </div> 
   )
 }
