@@ -1,7 +1,9 @@
 import { useContext, useRef } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import LocationContext from "../../context/location-context";
 import { LocationContextType } from "../../interfaces/location-context";
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import modules from './CityInput.module.css';
 
 const CityInput = () =>  {
@@ -16,12 +18,19 @@ const CityInput = () =>  {
   }
 
   return (
-    <form onSubmit={submitLocationHandler} className={modules.form}>
-      <div className={modules["form-control"]}>
-        <label htmlFor="city">Search for a city</label>
-        <input type="text" id="city" ref={locationRef}/>
-      </div>
-      <button type="submit">Search</button>
+    <form onSubmit={submitLocationHandler}>
+      <input 
+        ref={locationRef} 
+        className={modules["city-input"]}
+        type="text" 
+        placeholder="Search for a city"
+      />
+      <button type="submit" className={modules["search-button"]}>
+        <FontAwesomeIcon 
+          className={modules["search-icon"]}
+          icon={faMagnifyingGlass} 
+        />
+      </button>
     </form>
   )
 }
