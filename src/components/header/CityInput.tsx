@@ -12,9 +12,14 @@ const CityInput = () =>  {
 
   const submitLocationHandler = (event: React.FormEvent) => {
     event.preventDefault();
-    
+
+    if (locationRef.current!.value.trim() === "") {
+      return;
+    }
+
     const enteredCity = locationRef.current!.value;
     ctx.onChangeLocation(enteredCity);
+    locationRef.current!.value = "";
   }
 
   return (
