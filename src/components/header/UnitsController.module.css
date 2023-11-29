@@ -1,0 +1,33 @@
+.units-controller {
+  display: flex;
+  gap: 8px;
+  height: 25px;
+}
+
+.units-controller span {
+  font-size: 20px;
+}
+
+.units-indicator {
+  width: 50px;
+  border-radius: 18px;
+  border: 0.5px solid black;
+}
+
+.units-indicator__celsius,
+.units-indicator__fahrenheit {
+  background: transparent;
+  width: 25px;
+  height: 100%;
+  border: 1px solid black;
+  border-radius: 18px;
+  cursor: pointer;
+}
+
+.units-indicator__celsius {
+  float: right;
+}
+
+.units-indicator__fahrenheit {
+  float: left;
+}
