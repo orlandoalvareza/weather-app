@@ -1,5 +1,5 @@
 .daily-forecast {
-  width: 65%;
+  width: 64%;
   padding: 15px;
 }
 
@@ -21,11 +21,16 @@
 .forecast {
   justify-content: space-between;
   align-items: center;
+  height: 40px;
 }
 
 .forecast p {
   font-size: 18px;
   width: 90px;
+}
+
+.forecast img {
+  width: 40px;
 }
 
 .forecast span {
