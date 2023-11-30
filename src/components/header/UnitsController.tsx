@@ -1,16 +1,17 @@
-import { useState } from 'react';
+import { useContext } from 'react';
 
+import TemperatureUnitsContext from '../../context/temperature-units-context';
 import modules from './UnitsController.module.css';
 
 const UnitsController = () => {
-  const [isCelsius, setIsCelsius] = useState(false);
+  const ctx = useContext(TemperatureUnitsContext);
 
   const TemperatureUnitHandler = () => {
-    setIsCelsius(isCelsius => !isCelsius)
+    ctx.onChangeTempUnit();
   }
 
   const unitStyle = (
-    isCelsius ? "units-indicator__celsius" : "units-indicator__fahrenheit"
+    ctx.isCelsius ? "units-indicator__celsius" : "units-indicator__fahrenheit"
   )
 
   return (

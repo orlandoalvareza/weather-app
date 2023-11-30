@@ -58,8 +58,8 @@ export const LocationContextProvider: React.FC<LocationContextProviderProps> = (
   }
 
   const contextValue: LocationContextType = {
-    location: location,
-    locationsHistory: locationsHistory,
+    location,
+    locationsHistory,
     onChangeLocation: changeLocationHandler,
     onDeleteLocation: deleteLocationHandler
   };

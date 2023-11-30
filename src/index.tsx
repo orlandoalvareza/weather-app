@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 
 import { LocationContextProvider } from './context/location-context';
+import { TemperatureUnitsContextProvider } from './context/temperature-units-context';
 import App from './App';
 import './index.css';
 
@@ -11,7 +12,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <LocationContextProvider>
-      <App />
+      <TemperatureUnitsContextProvider>
+        <App />
+      </TemperatureUnitsContextProvider>
     </LocationContextProvider>
   </React.StrictMode>
 );
