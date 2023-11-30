@@ -4,6 +4,7 @@ export interface LocationContextType {
   location: string;
   locationsHistory: LocationHistory[];
   onChangeLocation: (newLocation: string) => void;
+  onDeleteLocation: (id: string) => void;
 }
 
 export interface LocationHistory {

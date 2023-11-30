@@ -14,7 +14,8 @@ const initialLocation = {
 const LocationContext = React.createContext<LocationContextType>({
   location: initialLocation.city,
   locationsHistory: [] as LocationHistory[],
-  onChangeLocation: () => {}
+  onChangeLocation: () => {},
+  onDeleteLocation: () => {}
 })
 
 export const LocationContextProvider: React.FC<LocationContextProviderProps> = (props) => {
@@ -47,10 +48,20 @@ export const LocationContextProvider: React.FC<LocationContextProviderProps> = (
     return false;
   }
 
+  const deleteLocationHandler = (id: string) => {
+    const filteredLocations = locationsHistory.filter(location => location.id !== id);
+
+    if (filteredLocations.length === 0) {
+      return;
+    } 
+    setLocationsHistory(filteredLocations);
+  }
+
   const contextValue: LocationContextType = {
     location: location,
     locationsHistory: locationsHistory,
     onChangeLocation: changeLocationHandler,
+    onDeleteLocation: deleteLocationHandler
   };
 
   return (

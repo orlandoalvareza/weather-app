@@ -10,12 +10,12 @@ import { LocationContextType } from '../../interfaces/location-context';
 const Chips = () => {
   const ctx = useContext<LocationContextType>(LocationContext);
 
-  const handleClick = () => {
-    console.info('You clicked the Chip.');
+  const handleClick = (city: string) => {
+    ctx.onChangeLocation(city);
   };
 
-  const handleDelete = () => {
-    console.info('You clicked the delete icon.');
+  const handleDelete = (id: string) => {
+    ctx.onDeleteLocation(id);
   };
 
   return (
@@ -23,8 +23,8 @@ const Chips = () => {
       {ctx.locationsHistory.map(location => (
         <Chip key={location.id}
           label={location.city}
-          onClick={handleClick}
-          onDelete={handleDelete}
+          onClick={() => handleClick(location.city)}
+          onDelete={() => handleDelete(location.id)}
         />
       ))}
     </Stack>
