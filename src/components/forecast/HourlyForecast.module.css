@@ -1,3 +1,7 @@
+.hourly-forecast {
+  padding: 15px;
+}
+
 .hourly-forecast > h2 {
   font-weight: 500;
   margin-bottom: 15px;

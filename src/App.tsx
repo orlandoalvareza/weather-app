@@ -1,4 +1,5 @@
 import Header from "./components/header/Header";
+import Chips from "./components/chips/Chips";
 import CurrentWeather from "./components/current-weather/CurrentWeather";
 import DailyForecast from "./components/forecast/DailyForecast";
 import HourlyForecast from "./components/forecast/HourlyForecast";
@@ -10,6 +11,7 @@ function App() {
   return (
     <div className="App">
       <Header/>
+      <Chips/>
       <CurrentWeather/>
       <HourlyForecast/>
       <section className="App__section">
