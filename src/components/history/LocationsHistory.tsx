@@ -5,16 +5,16 @@ import Stack from '@mui/material/Stack';
 import LocationContext from '../../context/location-context';
 import { LocationContextType } from '../../interfaces/location-context';
 
-// import modules from './Chips.module.css';
+// import modules from './LocationsHistory.module.css';
 
-const Chips = () => {
+const LocationsHistory = () => {
   const ctx = useContext<LocationContextType>(LocationContext);
 
-  const handleClick = (city: string) => {
+  const addLocationHandler = (city: string) => {
     ctx.onChangeLocation(city);
   };
 
-  const handleDelete = (id: string) => {
+  const deleteLocationHandler = (id: string) => {
     ctx.onDeleteLocation(id);
   };
 
@@ -23,12 +23,12 @@ const Chips = () => {
       {ctx.locationsHistory.map(location => (
         <Chip key={location.id}
           label={location.city}
-          onClick={() => handleClick(location.city)}
-          onDelete={() => handleDelete(location.id)}
+          onClick={() => addLocationHandler(location.city)}
+          onDelete={() => deleteLocationHandler(location.id)}
         />
       ))}
     </Stack>
   );
 }
 
-export default Chips;
+export default LocationsHistory;
