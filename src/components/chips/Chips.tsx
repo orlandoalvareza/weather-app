@@ -1,9 +1,15 @@
-import * as React from 'react';
+import { useContext } from 'react';
 import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
-import modules from './Chips.module.css';
+
+import LocationContext from '../../context/location-context';
+import { LocationContextType } from '../../interfaces/location-context';
+
+// import modules from './Chips.module.css';
 
 const Chips = () => {
+  const ctx = useContext<LocationContextType>(LocationContext);
+
   const handleClick = () => {
     console.info('You clicked the Chip.');
   };
@@ -14,17 +20,13 @@ const Chips = () => {
 
   return (
     <Stack direction="row" spacing={1}>
-      <Chip
-        label="Clickable Deletable"
-        onClick={handleClick}
-        onDelete={handleDelete}
-      />
-      <Chip
-        label="Clickable Deletable"
-        variant="outlined"
-        onClick={handleClick}
-        onDelete={handleDelete}
-      />
+      {ctx.locationsHistory.map(location => (
+        <Chip key={location.id}
+          label={location.city}
+          onClick={handleClick}
+          onDelete={handleDelete}
+        />
+      ))}
     </Stack>
   );
 }
