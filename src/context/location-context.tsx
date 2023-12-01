@@ -50,10 +50,14 @@ export const LocationContextProvider: React.FC<LocationContextProviderProps> = (
 
   const deleteLocationHandler = (id: string) => {
     const filteredLocations = locationsHistory.filter(location => location.id !== id);
-
     if (filteredLocations.length === 0) {
       return;
     } 
+
+    if (filteredLocations[0] !== locationsHistory[0]) {
+      setLocation(filteredLocations[0].city);
+    }
+
     setLocationsHistory(filteredLocations);
   }
 
