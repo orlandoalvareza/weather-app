@@ -1,8 +1,9 @@
 import CityInput from "./CityInput";
 import UnitsController from "./UnitsController";
+
 import modules from './Header.module.css';
 
-const Header = () => {
+const Header: React.FC = () => {
   return (
     <header className={modules.header}>
       <CityInput/>

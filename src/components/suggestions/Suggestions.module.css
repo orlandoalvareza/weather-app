@@ -14,24 +14,3 @@
   grid-template-columns: repeat(2, 47%);
   gap: 12px 15px;
 }
-
-.suggestion {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  padding-block: 13px;
-}
-
-.suggestion-icon {
-  font-size: 25px;
-}
-
-.suggestion__info {
-  text-align: center;
-}
-
-.suggestion__info p:first-child {
-  margin-bottom: 5px;
-}

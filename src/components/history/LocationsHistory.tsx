@@ -7,7 +7,7 @@ import { LocationContextType } from '../../interfaces/location-context';
 
 // import modules from './LocationsHistory.module.css';
 
-const LocationsHistory = () => {
+const LocationsHistory: React.FC = () => {
   const ctx = useContext<LocationContextType>(LocationContext);
 
   const addLocationHandler = (city: string) => {

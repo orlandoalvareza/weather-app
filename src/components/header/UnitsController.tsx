@@ -1,9 +1,10 @@
 import { useContext } from 'react';
 
 import TemperatureUnitsContext from '../../context/temperature-units-context';
+
 import modules from './UnitsController.module.css';
 
-const UnitsController = () => {
+const UnitsController: React.FC = () => {
   const ctx = useContext(TemperatureUnitsContext);
 
   const TemperatureUnitHandler = () => {

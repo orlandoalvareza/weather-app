@@ -11,7 +11,7 @@ import { getWeekDay } from "../../util/time";
 
 import modules from './DailyForecast.module.css';
 
-const DailyForecast = () => {
+const DailyForecast: React.FC = () => {
   const { location } = useContext<LocationContextType>(LocationContext);
   const { isCelsius } = useContext<TempUnitsContextType>(TemperatureUnitsContext);
   const [dailyForecastData, setDailyForecastData] = useState<DailyForecastData>({});

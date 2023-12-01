@@ -5,9 +5,10 @@ import { WeatherData } from "../../interfaces/current-weather";
 import { LocationContextType } from "../../interfaces/location-context";
 import { fetchCurrentWeather } from "../../util/http";
 import { getFormattedTime } from "../../util/time";
+
 import modules from './Measurements.module.css';
 
-const Measurements = () => {
+const Measurements: React.FC = () => {
   const ctx = useContext<LocationContextType>(LocationContext);
   const [measurementsData, setMeasurementsData] = useState<WeatherData>({});  
 

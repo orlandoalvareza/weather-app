@@ -2,8 +2,8 @@ import { useContext, useEffect, useState } from "react";
 
 import LocationContext from "../../context/location-context";
 import TemperatureUnitsContext from "../../context/temperature-units-context";
-import { LocationContextType } from "../../interfaces/location-context";
 import { TempUnitsContextType } from "../../interfaces/temperature-units-context";
+import { LocationContextType } from "../../interfaces/location-context";
 import { WeatherData } from "../../interfaces/current-weather";
 import { fetchCurrentWeather } from "../../util/http";
 import { getCurrentDate } from "../../util/time";
@@ -11,7 +11,7 @@ import { convertAllTemperatures } from "../../util/temperature";
 
 import modules from './CurrentWeather.module.css';
 
-const CurrentWeather = () => {
+const CurrentWeather: React.FC = () => {
   const { location } = useContext<LocationContextType>(LocationContext);
   const { isCelsius } = useContext<TempUnitsContextType>(TemperatureUnitsContext);
   const [weatherData, setWeatherData] = useState<WeatherData>({});  

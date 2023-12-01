@@ -1,6 +1,6 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useContext, useEffect, useState } from "react";
 
+import SuggestionElement from "./SuggestionElement";
 import LocationContext from "../../context/location-context";
 import { fetchCurrentWeather } from "../../util/http";
 import { 
@@ -24,7 +24,7 @@ import { LocationContextType } from "../../interfaces/location-context";
 
 import modules from './Suggestions.module.css';
 
-const Suggestions = () => {
+const Suggestions: React.FC = () => {
   const { location } = useContext<LocationContextType>(LocationContext);
   const [measurements, setMeasurements] = useState<WeatherData>({});  
 
@@ -52,66 +52,12 @@ const Suggestions = () => {
     <div className={modules["suggestions-container"]}>
       <h2>Suggestions for your day</h2>
       <div className={modules["suggestions"]}>
-        <div className={modules["suggestion"]}>
-          <FontAwesomeIcon 
-            icon={faPersonRunning} 
-            className={modules["suggestion-icon"]}
-          />
-          <div className={modules["suggestion__info"]}>
-            <p>Outdoors</p>
-            <p>{outdoorSuggestion}</p>
-          </div>
-        </div>
-        <div className={modules["suggestion"]}>
-          <FontAwesomeIcon 
-            icon={faUmbrella} 
-            className={modules["suggestion-icon"]}
-          />
-          <div className={modules["suggestion__info"]}>
-            <p>Umbrella</p>
-            <p>{umbrellaNeedSuggestion}</p>
-          </div>
-        </div>
-        <div className={modules["suggestion"]}>
-          <FontAwesomeIcon 
-            icon={faShirt} 
-            className={modules["suggestion-icon"]}
-          />
-          <div className={modules["suggestion__info"]}>
-            <p>Clothing</p>
-            <p>{clothingSuggestion}</p>
-          </div>
-        </div>
-        <div className={modules["suggestion"]}>
-          <FontAwesomeIcon 
-            icon={faCarSide} 
-            className={modules["suggestion-icon"]}
-          />
-          <div className={modules["suggestion__info"]}>
-            <p>Driving Safety</p>
-            <p>{drivingSafetySuggestion}</p>
-          </div>
-        </div>
-        <div className={modules["suggestion"]}>
-          <FontAwesomeIcon 
-            icon={faTemperatureEmpty} 
-            className={modules["suggestion-icon"]}
-          />
-          <div className={modules["suggestion__info"]}>
-            <p>Wind Chill</p>
-            <p>{windChillSuggestion}</p>
-          </div>
-        </div>
-        <div className={modules["suggestion"]}>
-          <FontAwesomeIcon 
-            icon={faTemperatureFull} 
-            className={modules["suggestion-icon"]}
-          />
-          <div className={modules["suggestion__info"]}>
-            <p>Heat Stroke</p>
-            <p>{heatStrokeSuggestion}</p>
-          </div>
-        </div>
+        <SuggestionElement icon={faPersonRunning} title={'Outdoors'} description={outdoorSuggestion}/>
+        <SuggestionElement icon={faUmbrella} title={'Umbrella'} description={umbrellaNeedSuggestion}/>
+        <SuggestionElement icon={faShirt} title={'Clothing'} description={clothingSuggestion}/>
+        <SuggestionElement icon={faCarSide} title={'Driving Safety'} description={drivingSafetySuggestion}/>
+        <SuggestionElement icon={faTemperatureEmpty} title={'Wind Chill'} description={windChillSuggestion}/>
+        <SuggestionElement icon={faTemperatureFull} title={'Heat Stroke'} description={heatStrokeSuggestion}/>
       </div>
     </div>
   )

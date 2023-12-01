@@ -4,9 +4,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import LocationContext from "../../context/location-context";
 import { LocationContextType } from "../../interfaces/location-context";
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+
 import modules from './CityInput.module.css';
 
-const CityInput = () =>  {
+const CityInput: React.FC = () =>  {
   const ctx = useContext<LocationContextType>(LocationContext);
   const locationRef = useRef<HTMLInputElement>(null);
 

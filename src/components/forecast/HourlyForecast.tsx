@@ -3,15 +3,15 @@ import { useContext, useEffect, useState } from "react";
 import LocationContext from "../../context/location-context";
 import TemperatureUnitsContext from "../../context/temperature-units-context";
 import { TempUnitsContextType } from "../../interfaces/temperature-units-context";
-import { fetchForecastWeather } from "../../util/http";
 import { LocationContextType } from "../../interfaces/location-context";
 import { HourlyForecastData } from "../../interfaces/hourly-forecast";
+import { fetchForecastWeather } from "../../util/http";
 import { convertTemperature } from "../../util/temperature";
 import { getFormattedTime } from "../../util/time";
 
 import modules from './HourlyForecast.module.css';
 
-const HourlyForecast = () => {
+const HourlyForecast: React.FC = () => {
   const { location } = useContext<LocationContextType>(LocationContext);
   const { isCelsius } = useContext<TempUnitsContextType>(TemperatureUnitsContext);
   const [hourlyForecastData, setHourlyForecastData] = useState<HourlyForecastData[]>([]);
