@@ -1,23 +1,28 @@
 import { useContext, useEffect, useState } from "react";
 
 import LocationContext from "../../context/location-context";
+import TemperatureUnitsContext from "../../context/temperature-units-context";
+import { TempUnitsContextType } from "../../interfaces/temperature-units-context";
 import { fetchForecastWeather } from "../../util/http";
 import { LocationContextType } from "../../interfaces/location-context";
 import { HourlyForecastData } from "../../interfaces/hourly-forecast";
+import { convertTemperature } from "../../util/temperature";
 import { getFormattedTime } from "../../util/time";
+
 import modules from './HourlyForecast.module.css';
 
 const HourlyForecast = () => {
-  const ctx = useContext<LocationContextType>(LocationContext);
+  const { location } = useContext<LocationContextType>(LocationContext);
+  const { isCelsius } = useContext<TempUnitsContextType>(TemperatureUnitsContext);
   const [hourlyForecastData, setHourlyForecastData] = useState<HourlyForecastData[]>([]);
 
   useEffect(() => {
     async function getCurrentWeather() {
-      const forecastData = await fetchForecastWeather(ctx.location);
-      setHourlyForecastData(forecastData.list.slice(0,8))
+      const forecastData = await fetchForecastWeather(location);
+      setHourlyForecastData(forecastData.list.slice(0,8));
     }
     getCurrentWeather();
-  }, [ctx.location])
+  }, [location])
 
   const getIcon = (icon: string) => {
     return `http://openweathermap.org/img/w/${icon}.png`;
@@ -34,7 +39,7 @@ const HourlyForecast = () => {
             </p>
             <img src={getIcon(hourlyForecastData[index].weather[0].icon)} alt="forecast-icon"/>
             <p className={modules["forecast-temp"]}>
-              {Math.round(hourlyForecast.main.temp - 273)} °C
+              {convertTemperature(hourlyForecast.main.temp, isCelsius)} °C
             </p>
             <p>{hourlyForecast.weather[0].description}</p>
           </li>

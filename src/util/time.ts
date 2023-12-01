@@ -1,4 +1,4 @@
-export const getFormattedTime = (timeStamp: number) => {
+export const getFormattedTime = (timeStamp: number): string => {
   const date = new Date(timeStamp * 1000);
   const hours = date.getHours();
   const minutes = date.getMinutes();
@@ -9,12 +9,12 @@ export const getFormattedTime = (timeStamp: number) => {
   return `${adjustedHours}:${minutes < 10 ? '0' : ''}${minutes} ${meridiemIndicator}`;
 }
 
-export const getWeekDay = (timeStamp: number) => {
+export const getWeekDay = (timeStamp: number): string => {
   const date = new Date(timeStamp * 1000);
   return date.toLocaleDateString('en-US', { weekday: 'long' });
 }
 
-export const getCurrentDate = (currentDate: number) => {
+export const getCurrentDate = (currentDate: number): string => {
   const date = new Date(currentDate * 1000);
 
   const year = date.getFullYear();

@@ -1,3 +1,10 @@
+export interface CurrentTemperatures {
+  temperature: number; 
+  feelsLikeWeather: number;
+  maxTemp: number;
+  minTemp: number
+}
+
 export interface WeatherData {
   coord?: {};
   weather?: Weather[];

@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 
-import { TempUnitsContextProviderProps, TempUnitsContextType } from "../interfaces/temperature-units-context";
+import { 
+  TempUnitsContextProviderProps, 
+  TempUnitsContextType 
+} from "../interfaces/temperature-units-context";
 
 const TemperatureUnitsContext = React.createContext<TempUnitsContextType>({
   isCelsius: false,
