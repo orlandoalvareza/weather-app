@@ -1,10 +1,9 @@
 .suggestion {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 10px;
-  padding-block: 13px;
+  padding-block: 11px;
 }
 
 .suggestion-icon {
