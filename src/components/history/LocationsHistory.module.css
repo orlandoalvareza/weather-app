@@ -1,0 +1,17 @@
+.stack {
+  width: 100%;
+  overflow-x: scroll;
+}
+
+.stack::-webkit-scrollbar {
+  height: 8px;
+}
+
+.stack::-webkit-scrollbar-track {
+  border-radius: 5px;
+}
+
+.stack::-webkit-scrollbar-thumb {
+  background: #BBBFCA; 
+  border-radius: 5px;
+}

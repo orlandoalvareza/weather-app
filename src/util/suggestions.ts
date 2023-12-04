@@ -53,7 +53,7 @@ export const suggestClothing = (temp: number): string => {
   } else if (windChill === 'Extreme Caution' || heatStroke === 'Extreme Caution') {
     return 'Long sleeves';
   } else if (windChill === 'Caution' || heatStroke === 'Caution') {
-    return 'Breathable clothing';
+    return 'Airy attire';
   } else {
     return 'Shorts';
   }
@@ -69,7 +69,7 @@ export const suggestDrivingSafety = (visibility: number): string => {
   } else if (visibility >= 500 && visibility < 700) {
     return 'Fair';
   } else if (visibility >= 700 && visibility < 1000) {
-    return 'Fair';
+    return 'Good';
   } else {
     return 'Great';
   }
