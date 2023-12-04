@@ -44,7 +44,7 @@ const DailyForecast: React.FC = () => {
               alt="forecast-icon" 
             />
             <span>
-              {convertTemperature(dailyForecast.main.temp, isCelsius)} °C
+              {convertTemperature(dailyForecast.main.temp, isCelsius)} {isCelsius ? '°C' : '°F'}
             </span>
           </li>
         ))}

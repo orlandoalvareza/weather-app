@@ -1,5 +1,6 @@
 .stack {
   width: 100%;
+  padding-inline: 15px;
   overflow-x: scroll;
 }
 

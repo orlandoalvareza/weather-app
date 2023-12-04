@@ -39,7 +39,7 @@ const HourlyForecast: React.FC = () => {
             </p>
             <img src={getIcon(hourlyForecastData[index].weather[0].icon)} alt="forecast-icon"/>
             <p className={modules["forecast-temp"]}>
-              {convertTemperature(hourlyForecast.main.temp, isCelsius)} °C
+              {convertTemperature(hourlyForecast.main.temp, isCelsius)} {isCelsius ? '°C' : '°F'}
             </p>
             <p>{hourlyForecast.weather[0].description}</p>
           </li>
