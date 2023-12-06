@@ -15,6 +15,13 @@ async function fetchData(url: string) {
   }
 }
 
+export async function getLocation(lat: number, lon: number) {
+  const currentPositionUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`;
+  
+  const currentPosition = await fetchData(currentPositionUrl);
+  return currentPosition;
+}
+
 export async function fetchCurrentWeather(location: string) {
   const currentWeatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}`;
 

@@ -14,6 +14,7 @@ const initialLocation = {
 const LocationContext = React.createContext<LocationContextType>({
   location: initialLocation.city,
   locationsHistory: [] as LocationHistory[],
+  onChangeInitialLocation: () => {},
   onChangeLocation: () => {},
   onDeleteLocation: () => {}
 })
@@ -21,6 +22,11 @@ const LocationContext = React.createContext<LocationContextType>({
 export const LocationContextProvider: React.FC<LocationContextProviderProps> = (props) => {
   const [location, setLocation] = useState<string>(initialLocation.city);
   const [locationsHistory, setLocationsHistory] = useState<LocationHistory[]>([initialLocation]);
+
+  const changeInitialLocationHandler = (city: string) => {
+    initialLocation.city = city;
+    setLocation(initialLocation.city);
+  }
 
   const changeLocationHandler = (city: string) => {
     setLocation(city);
@@ -64,6 +70,7 @@ export const LocationContextProvider: React.FC<LocationContextProviderProps> = (
   const contextValue: LocationContextType = {
     location,
     locationsHistory,
+    onChangeInitialLocation: changeInitialLocationHandler,
     onChangeLocation: changeLocationHandler,
     onDeleteLocation: deleteLocationHandler
   };
