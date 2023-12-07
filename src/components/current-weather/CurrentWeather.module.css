@@ -1,6 +1,8 @@
 .current-weather-container,
+.location-container,
 .weather-container,
 .temp-container,
+.temp-container__aside,
 .temp-container__aside-section {
   display: flex;
 }
@@ -12,8 +14,9 @@
   padding-inline: 15px;
 }
 
-.location-container > h2 {
-  margin-bottom: 10px;
+.location-container {
+  flex-direction: column;
+  gap: 10px;
 }
 
 .location-container span {
@@ -50,12 +53,12 @@
   margin-top: 10px;
 }
 
-.temp-container__aside > p {
+.temp-container__aside {
   font-size: 18px;
-  margin-bottom: 8px;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .temp-container__aside-section {
   justify-content: space-between;
-  padding-inline: 8px;
 }

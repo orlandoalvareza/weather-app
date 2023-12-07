@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 
+import Skeleton from '@mui/material/Skeleton';
 import LocationContext from "../../context/location-context";
 import { WeatherData } from "../../interfaces/current-weather";
 import { LocationContextType } from "../../interfaces/location-context";
@@ -11,11 +12,15 @@ import modules from './Measurements.module.css';
 const Measurements: React.FC = () => {
   const ctx = useContext<LocationContextType>(LocationContext);
   const [measurementsData, setMeasurementsData] = useState<WeatherData>({});  
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     async function getCurrentWeather() {
+      setIsLoading(true);
       const data = await fetchCurrentWeather(ctx.location);
+
       setMeasurementsData(data);
+      setIsLoading(false);
     }
 
     getCurrentWeather();
@@ -46,17 +51,19 @@ const Measurements: React.FC = () => {
     Number(measurementsData.visibility * 0.000621371).toFixed(2)
   );
 
+  const skeleton = <Skeleton variant="text" sx={{ fontSize: '18px' }}/>;
+
   return (
     <div className={modules["measurements-container"]}>
       <h2>Measurements</h2>
       <div className={modules["measurements"]}>
-        <p>Sunrise: {sunrise}</p>
-        <p>Sunset: {sunset}</p>
-        <p>Pressure: {pressure} hPa</p>
-        <p>Humidity: {humidity} %</p>
-        <p>Wind: {windSpeed} mph, {windDeg}</p>
-        <p>Cloudiness: {cloudiness} %</p>
-        <p>Visibility: {visibility} mi</p>
+        {isLoading ? skeleton : <p>Sunrise: {sunrise}</p>}
+        {isLoading ? skeleton : <p>Sunset: {sunset}</p>}
+        {isLoading ? skeleton : <p>Pressure: {pressure} hPa</p>}
+        {isLoading ? skeleton : <p>Humidity: {humidity} %</p>}
+        {isLoading ? skeleton : <p>Wind: {windSpeed} mph, {windDeg}</p>}
+        {isLoading ? skeleton : <p>Cloudiness: {cloudiness} %</p>}
+        {isLoading ? skeleton : <p>Visibility: {visibility} mi</p>}
       </div>
     </div> 
   )

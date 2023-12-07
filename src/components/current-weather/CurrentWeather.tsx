@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 
+import Skeleton from '@mui/material/Skeleton';
 import LocationContext from "../../context/location-context";
 import TemperatureUnitsContext from "../../context/temperature-units-context";
 import { TempUnitsContextType } from "../../interfaces/temperature-units-context";
@@ -15,11 +16,15 @@ const CurrentWeather: React.FC = () => {
   const { location } = useContext<LocationContextType>(LocationContext);
   const { isCelsius } = useContext<TempUnitsContextType>(TemperatureUnitsContext);
   const [weatherData, setWeatherData] = useState<WeatherData>({});  
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     async function getCurrentWeather() {
+      setIsLoading(true);
       const data = await fetchCurrentWeather(location);
+
       setWeatherData(data);
+      setIsLoading(false);
     }
 
     getCurrentWeather();
@@ -42,28 +47,48 @@ const CurrentWeather: React.FC = () => {
     temperature, feelsLikeWeather, maxTemp, minTemp
   }, isCelsius);
 
+  const tempSpanSkeleton = <Skeleton variant="text" sx={{ fontSize: '20px', width: '45px' }}/>;
+
   return (
     <div className={modules["current-weather-container"]}>
-      <div className={modules["location-container"]}>
-        <h2>
-          <span>{cityName}</span>, {country}
-        </h2>
-        <h3>{date}</h3>
-      </div>
+      {isLoading && (
+        <div className={modules["location-container"]}>
+          <Skeleton variant="rounded" width={200} height={40}/>
+          <Skeleton variant="rounded" width={200} height={20}/>
+        </div>
+      )}
+      {!isLoading && (
+        <div className={modules["location-container"]}>
+          <h2>
+            <span>{cityName}</span>, {country}
+          </h2>
+          <h3>{date}</h3>
+        </div>
+      )}
       <div className={modules["weather-container"]}>
-        <img src={iconSrc} alt="weather-icon"/>
-        <p>{weatherDescription}</p>
+        {isLoading 
+          ? <Skeleton variant="rounded" width={70} height={70}/> 
+          : <img src={iconSrc} alt="weather-icon"/>
+        }
+        {isLoading 
+          ? <Skeleton variant="text" sx={{ fontSize: '1rem', width: '110px' }}/> 
+          : <p>{weatherDescription}</p>
+        }
       </div>
       <div className={modules["temp-container"]}>
-        <h1 className={modules["temp-container__temp"]}>
-          {temperaturesData.temperature}
-          <span>{isCelsius ? "°C" : "°F"}</span>
-        </h1>
+        {isLoading && <Skeleton variant="rounded" width={80} height={70}/>}
+        {!isLoading && (
+          <h1 className={modules["temp-container__temp"]}>
+            {temperaturesData.temperature}
+            <span>{isCelsius ? "°C" : "°F"}</span>
+          </h1>
+        )}
         <div className={modules["temp-container__aside"]}>
-          <p>Feels like {temperaturesData.feelsLikeWeather} °C</p>
+          {isLoading && <Skeleton variant="text" sx={{ fontSize: '20px', width: '110px' }}/>}
+          {!isLoading && <p>Feels like {temperaturesData.feelsLikeWeather} °C</p>}
           <section className={modules["temp-container__aside-section"]}>
-            <span>H: {temperaturesData.maxTemp} °</span>
-            <span>L: {temperaturesData.minTemp} °</span>
+            {isLoading ? tempSpanSkeleton : <span>H: {temperaturesData.maxTemp} °</span>}
+            {isLoading ? tempSpanSkeleton : <span>L: {temperaturesData.minTemp} °</span>}
           </section>
         </div>
       </div>

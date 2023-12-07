@@ -3,11 +3,12 @@ const apiKey = process.env.REACT_APP_API_KEY;
 async function fetchData(url: string) {
   try {
     const response = await fetch(url);
-
+    
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
-
+    
+    await new Promise(resolve => setTimeout(resolve, 2000));
     const data = await response.json();
     return data;
   } catch (error: any) {
