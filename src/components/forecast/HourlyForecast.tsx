@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 
 import LocationContext from "../../context/location-context";
 import TemperatureUnitsContext from "../../context/temperature-units-context";
+import Skeleton from '@mui/material/Skeleton';
 import { TempUnitsContextType } from "../../interfaces/temperature-units-context";
 import { LocationContextType } from "../../interfaces/location-context";
 import { HourlyForecastData } from "../../interfaces/hourly-forecast";
@@ -15,11 +16,15 @@ const HourlyForecast: React.FC = () => {
   const { location } = useContext<LocationContextType>(LocationContext);
   const { isCelsius } = useContext<TempUnitsContextType>(TemperatureUnitsContext);
   const [hourlyForecastData, setHourlyForecastData] = useState<HourlyForecastData[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   useEffect(() => {
     async function getCurrentWeather() {
+      setIsLoading(true);
       const forecastData = await fetchForecastWeather(location);
+
       setHourlyForecastData(forecastData.list.slice(0,8));
+      setIsLoading(false);
     }
     getCurrentWeather();
   }, [location])
@@ -34,14 +39,32 @@ const HourlyForecast: React.FC = () => {
       <ul className={modules["forecast-list"]}>
         {hourlyForecastData.map((hourlyForecast: HourlyForecastData, index: number) => (
           <li key={hourlyForecast.dt} className={modules.forecast}>
-            <p className={modules["forecast-time"]}>
-              {getFormattedTime(hourlyForecast.dt)}
-            </p>
-            <img src={getIcon(hourlyForecastData[index].weather[0].icon)} alt="forecast-icon"/>
-            <p className={modules["forecast-temp"]}>
-              {convertTemperature(hourlyForecast.main.temp, isCelsius)} {isCelsius ? '°C' : '°F'}
-            </p>
-            <p>{hourlyForecast.weather[0].description}</p>
+            {isLoading 
+              ? (
+                <>
+                  <Skeleton variant="text" sx={{ width: '60px', height: '22px' }} /> 
+                  <Skeleton variant="rounded" width={50} height={40}/>
+                  <Skeleton variant="text" sx={{ width: '50px', height: '30px' }} /> 
+                  <Skeleton variant="text" sx={{ width: '90px', height: '20px' }} /> 
+                </>
+              )
+              : (
+                <>
+                  <p className={modules["forecast-time"]}>
+                    {getFormattedTime(hourlyForecast.dt)}
+                  </p>
+                  <img 
+                    src={getIcon(hourlyForecastData[index].weather[0].icon)} 
+                    alt="forecast-icon"
+                  />
+                  <p className={modules["forecast-temp"]}>
+                    {convertTemperature(hourlyForecast.main.temp, isCelsius)} 
+                    {isCelsius ? '°C' : '°F'}
+                  </p>
+                  <p>{hourlyForecast.weather[0].description}</p>
+                </>
+              )
+            }
           </li>
         ))}
       </ul>

@@ -16,7 +16,7 @@ const CurrentWeather: React.FC = () => {
   const { location } = useContext<LocationContextType>(LocationContext);
   const { isCelsius } = useContext<TempUnitsContextType>(TemperatureUnitsContext);
   const [weatherData, setWeatherData] = useState<WeatherData>({});  
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   useEffect(() => {
     async function getCurrentWeather() {

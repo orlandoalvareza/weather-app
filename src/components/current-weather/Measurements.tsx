@@ -12,7 +12,7 @@ import modules from './Measurements.module.css';
 const Measurements: React.FC = () => {
   const ctx = useContext<LocationContextType>(LocationContext);
   const [measurementsData, setMeasurementsData] = useState<WeatherData>({});  
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   useEffect(() => {
     async function getCurrentWeather() {
