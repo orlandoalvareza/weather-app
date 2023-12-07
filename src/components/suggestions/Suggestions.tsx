@@ -27,11 +27,15 @@ import modules from './Suggestions.module.css';
 const Suggestions: React.FC = () => {
   const { location } = useContext<LocationContextType>(LocationContext);
   const [measurements, setMeasurements] = useState<WeatherData>({});  
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   useEffect(() => {
     async function getCurrentWeather() {
+      setIsLoading(true);
       const data = await fetchCurrentWeather(location);
+
       setMeasurements(data);
+      setIsLoading(false);
     }
 
     getCurrentWeather();
@@ -52,12 +56,42 @@ const Suggestions: React.FC = () => {
     <div className={modules["suggestions-container"]}>
       <h2>Suggestions for your day</h2>
       <div className={modules["suggestions"]}>
-        <SuggestionElement icon={faPersonRunning} title={'Outdoors'} description={outdoorSuggestion}/>
-        <SuggestionElement icon={faUmbrella} title={'Umbrella'} description={umbrellaNeedSuggestion}/>
-        <SuggestionElement icon={faShirt} title={'Clothing'} description={clothingSuggestion}/>
-        <SuggestionElement icon={faCarSide} title={'Driving Safety'} description={drivingSafetySuggestion}/>
-        <SuggestionElement icon={faTemperatureEmpty} title={'Wind Chill'} description={windChillSuggestion}/>
-        <SuggestionElement icon={faTemperatureFull} title={'Heat Stroke'} description={heatStrokeSuggestion}/>
+        <SuggestionElement 
+          icon={faPersonRunning} 
+          title={'Outdoors'} 
+          description={outdoorSuggestion} 
+          isLoading={isLoading}
+        />
+        <SuggestionElement 
+          icon={faUmbrella} 
+          title={'Umbrella'} 
+          description={umbrellaNeedSuggestion} 
+          isLoading={isLoading}
+        />
+        <SuggestionElement 
+          icon={faShirt} 
+          title={'Clothing'} 
+          description={clothingSuggestion} 
+          isLoading={isLoading}
+        />
+        <SuggestionElement 
+          icon={faCarSide} 
+          title={'Driving Safety'} 
+          description={drivingSafetySuggestion} 
+          isLoading={isLoading}
+        />
+        <SuggestionElement 
+          icon={faTemperatureEmpty} 
+          title={'Wind Chill'} 
+          description={windChillSuggestion} 
+          isLoading={isLoading}
+        />
+        <SuggestionElement 
+          icon={faTemperatureFull} 
+          title={'Heat Stroke'} 
+          description={heatStrokeSuggestion} 
+          isLoading={isLoading}
+        />
       </div>
     </div>
   )

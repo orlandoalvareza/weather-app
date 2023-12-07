@@ -1,5 +1,5 @@
+import Skeleton from '@mui/material/Skeleton';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
 import { SuggestionProps } from "../../interfaces/suggestion";
 
 import modules from './SuggestionElement.module.css';
@@ -13,7 +13,10 @@ const SuggestionElement: React.FC<SuggestionProps> = (props) => {
       />
       <div className={modules["suggestion__info"]}>
         <p>{props.title}</p>
-        <p>{props.description}</p>
+        {props.isLoading 
+          ? <Skeleton variant="text" sx={{ fontSize: '1rem', height: '19px' }} />
+          : <p>{props.description}</p>
+        }
       </div>
     </div>
   )
