@@ -22,7 +22,7 @@ const UnitsController: React.FC = () => {
         <button 
           onClick={TemperatureUnitHandler}
           className={modules[unitStyle]}
-          ></button>
+        ></button>
       </div>
       <span>°C</span>
     </div>

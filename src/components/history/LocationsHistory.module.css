@@ -1,7 +1,16 @@
 .stack {
   width: 100%;
-  padding-inline: 15px;
   overflow-x: scroll;
+}
+
+.chip {
+  background: var(--theme-one-first-color);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+}
+
+.chip:hover {
+  background: #f0f9fd;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
 }
 
 .stack::-webkit-scrollbar {

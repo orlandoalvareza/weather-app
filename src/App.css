@@ -7,7 +7,7 @@
 
 .App {
   flex-direction: column;
-  background: linear-gradient(120deg, #D6E6F2, #5CC2F2);
+  background: linear-gradient(120deg, var(--theme-one-second-color), var(--theme-one-fourth-color));
   width: 100%;
   height: 100vh;
   padding: 15px 20px;

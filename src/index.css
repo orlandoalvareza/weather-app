@@ -1,10 +1,19 @@
+:root {
+  --theme-one-first-color: #FAFAFA;
+  --theme-one-second-color: #C7EEFF;
+  --theme-one-third-color: #5cc0ee;
+  --theme-one-fourth-color: #0b88d6;
+  --theme-one-fifth-color: #2ea3ec;
+  --theme-one-sixth-color: #303841;
+} 
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   text-decoration: none;
   list-style: none;
-  outline: 1px solid slateblue;
+  /* outline: 1px solid slateblue; */
 }
 
 /* body {

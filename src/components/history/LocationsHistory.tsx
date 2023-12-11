@@ -45,9 +45,10 @@ const LocationsHistory: React.FC = () => {
       <Stack direction="row" spacing={1} className={modules.stack}>
         {ctx.locationsHistory.map(location => (
           <Chip key={location.id}
-          label={location.city}
-          onClick={() => addLocationHandler(location.city)}
-          onDelete={() => deleteLocationHandler(location.id)}
+            label={location.city}
+            className={modules.chip}
+            onClick={() => addLocationHandler(location.city)}
+            onDelete={() => deleteLocationHandler(location.id)}
           />
           ))}
       </Stack>

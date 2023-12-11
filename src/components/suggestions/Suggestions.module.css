@@ -1,5 +1,5 @@
 .suggestions-container {
-  background: #5CC2F2;
+  background: var(--theme-one-fourth-color);
   width: 55%;
   padding: 15px;
   border-radius: 8px;

@@ -1,5 +1,5 @@
 .daily-forecast {
-  background: #5CC2F2;
+  background: var(--theme-one-fourth-color);
   width: 55%;
   padding: 15px;
   border-radius: 8px;
@@ -24,7 +24,9 @@
 .forecast {
   justify-content: space-between;
   align-items: center;
+  background: var(--theme-one-fifth-color);
   height: 40px;
+  padding-inline: 10px;
 }
 
 .forecast p {
