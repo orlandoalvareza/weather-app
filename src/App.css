@@ -12,3 +12,7 @@
   height: 100vh;
   padding: 15px 20px;
 }
+
+.dawn-theme {
+  background: linear-gradient(120deg, var(--theme-dawn-first-color), var(--theme-dawn-second-color));
+}

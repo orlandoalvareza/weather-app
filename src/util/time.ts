@@ -25,7 +25,7 @@ export const getCurrentDate = (currentDate: number): string => {
   return `${dayOfWeek}, ${month} ${day} ${year}`;
 }
 
-export const getCurrentTimeInSec = (timeStamp?: number) => {
+export const getCurrentTimeInSeconds = (timeStamp?: number) => {
   let time;
   
   if (timeStamp) {

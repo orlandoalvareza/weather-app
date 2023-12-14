@@ -1,3 +1,4 @@
+import useTheme from "./hooks/useTheme";
 import useCurrentLocation from "./hooks/useCurrentLocation";
 import Header from "./components/header/Header";
 import LocationsHistory from "./components/history/LocationsHistory";
@@ -11,13 +12,13 @@ import SunriseSunset from "./components/sunrise-sunset/SunriseSunset";
 import './App.css';
 
 function App() {
+  const theme = useTheme();
   useCurrentLocation();
 
-  const time = new Date();
-  console.log(time);
+  const appClass = `App ${theme}`;
   
   return (
-    <div className="App">
+    <div className={appClass}>
       <Header/>
       <LocationsHistory/>
       <CurrentWeather/>
