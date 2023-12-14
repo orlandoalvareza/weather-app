@@ -1,14 +1,22 @@
+import { useContext } from 'react';
+
 import useCurrentWeather from '../../hooks/useCurrentWeather';
+import LocationContext from '../../context/location-context';
 import { getCurrentTimeInSec, getExpectedTime } from '../../util/time';
+import { LocationContextType } from '../../interfaces/location-context';
 
 import modules from './SunriseSunset.module.css';
 
 const SunriseSunset = () => {
   const { weatherData, isLoading } = useCurrentWeather();
+  const { timezone } = useContext<LocationContextType>(LocationContext);
+
+  const currentTimezone = weatherData?.timezone!;
+  const timezoneDifference = currentTimezone - timezone;
 
   const currentTime = getCurrentTimeInSec();
-  const sunrise = getCurrentTimeInSec(weatherData.sys?.sunrise!);
-  const sunset = getCurrentTimeInSec(weatherData.sys?.sunset!);
+  const sunrise = getCurrentTimeInSec(weatherData.sys?.sunrise! + timezoneDifference);
+  const sunset = getCurrentTimeInSec(weatherData.sys?.sunset! + timezoneDifference);
 
   let expectedTimeToSunrise;
   let expectedTimeToSunset;

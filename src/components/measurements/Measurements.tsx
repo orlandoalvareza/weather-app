@@ -4,12 +4,13 @@ import useCurrentWeather from "../../hooks/useCurrentWeather";
 import LocationContext from "../../context/location-context";
 import Skeleton from '@mui/material/Skeleton';
 import { getFormattedTime } from "../../util/time";
+import { LocationContextType } from "../../interfaces/location-context";
 
 import modules from './Measurements.module.css';
 
 const Measurements: React.FC = () => {
   const { weatherData, isLoading } = useCurrentWeather();
-  const { timezone } = useContext(LocationContext);
+  const { timezone } = useContext<LocationContextType>(LocationContext);
 
   const getWindDirection = (deg: number) => {
     const cardinalDirections = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW', 'N'];

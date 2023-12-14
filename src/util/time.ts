@@ -45,5 +45,5 @@ export const getExpectedTime = (seconds: number) => {
   const hours = Math.floor(seconds / 3600);
   const minutes = Math.floor((seconds - (hours * 3600)) / 60);
 
-  return `${hours}h ${minutes}m`;
+  return `${hours < 10 ? '0' : ''}${hours}h ${minutes < 10 ? '0' : ''}${minutes}m`;
 }
