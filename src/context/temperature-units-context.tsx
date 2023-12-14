@@ -11,7 +11,7 @@ const TemperatureUnitsContext = React.createContext<TempUnitsContextType>({
 })
 
 export const TemperatureUnitsContextProvider: React.FC<TempUnitsContextProviderProps> = (props) => {
-  const [isCelsius, setIsCelsius] = useState(false);
+  const [isCelsius, setIsCelsius] = useState<boolean>(false);
 
   const TemperatureUnitHandler = () => {
     setIsCelsius(prevTemperature => !prevTemperature)

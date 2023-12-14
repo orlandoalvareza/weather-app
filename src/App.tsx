@@ -12,6 +12,9 @@ import './App.css';
 
 function App() {
   useCurrentLocation();
+
+  const time = new Date();
+  console.log(time);
   
   return (
     <div className="App">

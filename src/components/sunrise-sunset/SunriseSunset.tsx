@@ -7,7 +7,7 @@ import { LocationContextType } from '../../interfaces/location-context';
 
 import modules from './SunriseSunset.module.css';
 
-const SunriseSunset = () => {
+const SunriseSunset: React.FC = () => {
   const { weatherData, isLoading } = useCurrentWeather();
   const { timezone } = useContext<LocationContextType>(LocationContext);
 
