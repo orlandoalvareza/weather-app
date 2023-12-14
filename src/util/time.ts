@@ -25,7 +25,7 @@ export const getCurrentDate = (currentDate: number): string => {
   return `${dayOfWeek}, ${month} ${day} ${year}`;
 }
 
-export const getCurrentTimeInMin = (timeStamp?: number) => {
+export const getCurrentTimeInSec = (timeStamp?: number) => {
   let time;
   
   if (timeStamp) {
@@ -36,17 +36,14 @@ export const getCurrentTimeInMin = (timeStamp?: number) => {
 
   const hours = time.getHours();
   const minutes = time.getMinutes();
+  const seconds = time.getSeconds()
   
-  return hours * 60 + minutes;
+  return (hours * 60 + minutes) * 60 + seconds;
 }
 
-export const getExpectedTime = (totalMinutes: number) => {
-  const seg = totalMinutes * 60;
-  const hours = Math.floor(seg / 3600);
-  const minutes = Math.floor((seg - (hours * 3600)) / 60);
+export const getExpectedTime = (seconds: number) => {
+  const hours = Math.floor(seconds / 3600);
+  const minutes = Math.floor((seconds - (hours * 3600)) / 60);
 
   return `${hours}h ${minutes}m`;
 }
-
-// const time = getExpectedTime(208)
-// console.log(time);

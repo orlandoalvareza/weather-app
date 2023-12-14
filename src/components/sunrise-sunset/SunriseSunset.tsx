@@ -1,33 +1,14 @@
-import { useContext, useEffect, useState } from 'react';
-
-import LocationContext from '../../context/location-context';
-import { fetchCurrentWeather } from '../../util/http';
-import { getCurrentTimeInMin, getExpectedTime } from '../../util/time';
-import { LocationContextType } from '../../interfaces/location-context';
-import { WeatherData } from '../../interfaces/current-weather';
+import useCurrentWeather from '../../hooks/useCurrentWeather';
+import { getCurrentTimeInSec, getExpectedTime } from '../../util/time';
 
 import modules from './SunriseSunset.module.css';
 
 const SunriseSunset = () => {
-  const ctx = useContext<LocationContextType>(LocationContext);
-  const [measurementsData, setMeasurementsData] = useState<WeatherData>({});  
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const { weatherData, isLoading } = useCurrentWeather();
 
-  useEffect(() => {
-    async function getCurrentWeather() {
-      setIsLoading(true);
-      const data = await fetchCurrentWeather(ctx.location);
-
-      setMeasurementsData(data);
-      setIsLoading(false);
-    }
-
-    getCurrentWeather();
-  }, [ctx])
-
-  const currentTime = getCurrentTimeInMin();
-  const sunrise = getCurrentTimeInMin(measurementsData.sys?.sunrise!);
-  const sunset = getCurrentTimeInMin(measurementsData.sys?.sunset!);
+  const currentTime = getCurrentTimeInSec();
+  const sunrise = getCurrentTimeInSec(weatherData.sys?.sunrise!);
+  const sunset = getCurrentTimeInSec(weatherData.sys?.sunset!);
 
   let expectedTimeToSunrise;
   let expectedTimeToSunset;

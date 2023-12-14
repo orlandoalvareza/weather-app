@@ -22,7 +22,7 @@ function App() {
       const longitude = position.coords.longitude;
       
       const location = await getLocation(latitude, longitude);
-      onChangeInitialLocation(location.name);
+      onChangeInitialLocation(location.name, location.timezone);
     }
 
     const handleError = (error: any) => {

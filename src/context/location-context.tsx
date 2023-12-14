@@ -8,12 +8,14 @@ import {
 
 const initialLocation = {
   id: "0.123456789",
-  city: "miami"
+  city: "miami",
+  timezone: -18000
 }
 
 const LocationContext = React.createContext<LocationContextType>({
   location: initialLocation.city,
   locationsHistory: [] as LocationHistory[],
+  timezone: initialLocation.timezone,
   onChangeInitialLocation: () => {},
   onChangeLocation: () => {},
   onDeleteLocation: () => {}
@@ -22,10 +24,14 @@ const LocationContext = React.createContext<LocationContextType>({
 export const LocationContextProvider: React.FC<LocationContextProviderProps> = (props) => {
   const [location, setLocation] = useState<string>(initialLocation.city);
   const [locationsHistory, setLocationsHistory] = useState<LocationHistory[]>([initialLocation]);
+  const [timezone, setTimezone] = useState<number>(initialLocation.timezone);
 
-  const changeInitialLocationHandler = (city: string) => {
+  const changeInitialLocationHandler = (city: string, timezone: number) => {
     initialLocation.city = city;
+    initialLocation.timezone = timezone;
+
     setLocation(initialLocation.city);
+    setTimezone(initialLocation.timezone);
   }
 
   const changeLocationHandler = (city: string) => {
@@ -70,6 +76,7 @@ export const LocationContextProvider: React.FC<LocationContextProviderProps> = (
   const contextValue: LocationContextType = {
     location,
     locationsHistory,
+    timezone,
     onChangeInitialLocation: changeInitialLocationHandler,
     onChangeLocation: changeLocationHandler,
     onDeleteLocation: deleteLocationHandler
