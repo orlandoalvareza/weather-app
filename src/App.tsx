@@ -8,9 +8,10 @@ import CurrentWeather from "./components/current-weather/CurrentWeather";
 import DailyForecast from "./components/forecast/DailyForecast";
 import HourlyForecast from "./components/forecast/HourlyForecast";
 import Suggestions from "./components/suggestions/Suggestions";
-import Measurements from "./components/current-weather/Measurements";
+import Measurements from "./components/measurements/Measurements";
 
 import './App.css';
+import SunriseSunset from "./components/sunrise-sunset/SunriseSunset";
 
 function App() {
   const { onChangeInitialLocation } = useContext(LocationContext);
@@ -43,10 +44,9 @@ function App() {
       <HourlyForecast/>
       <section className="App__section">
         <DailyForecast/>
-        <section className="App__sub-section">
-          <Suggestions/>
-          <Measurements/>
-        </section>
+        <Suggestions/>
+        <Measurements/>
+        <SunriseSunset/>
       </section>
     </div>
   );

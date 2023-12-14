@@ -1,19 +1,12 @@
-.suggestions-container {
+.sunrise-sunset-container {
   background: var(--theme-one-fourth-color);
-  width: 25%;
+  width: 18%;
   padding: 15px;
   border-radius: 8px;
   box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
 }
 
-.suggestions-container > h2 {
+.sunrise-sunset-container > h2 {
   font-weight: 500;
   margin-bottom: 10px;
-  text-align: center;
-}
-
-.suggestions {  
-  display: grid;
-  grid-template-columns: repeat(2, 48%);
-  gap: 13px;
 }
