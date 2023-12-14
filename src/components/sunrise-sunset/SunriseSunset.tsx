@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 
 import LocationContext from '../../context/location-context';
 import { fetchCurrentWeather } from '../../util/http';
-import { getCurrentTimeInMin } from '../../util/time';
+import { getCurrentTimeInMin, getExpectedTime } from '../../util/time';
 import { LocationContextType } from '../../interfaces/location-context';
 import { WeatherData } from '../../interfaces/current-weather';
 
@@ -28,10 +28,17 @@ const SunriseSunset = () => {
   const currentTime = getCurrentTimeInMin();
   const sunrise = getCurrentTimeInMin(measurementsData.sys?.sunrise!);
   const sunset = getCurrentTimeInMin(measurementsData.sys?.sunset!);
-  
-  // console.log('currentTime', currentTime);
-  // console.log('sunrise', sunrise);
-  // console.log('sunset', sunset);
+
+  let expectedTimeToSunrise;
+  let expectedTimeToSunset;
+
+  if (sunrise - currentTime > 0) {
+    expectedTimeToSunrise = getExpectedTime(sunrise - currentTime);
+  }
+
+  if (sunset - currentTime > 0) {
+    expectedTimeToSunset = getExpectedTime(sunset - currentTime);
+  }
 
   return (
     <div className={modules["sunrise-sunset-container"]}>
@@ -39,11 +46,11 @@ const SunriseSunset = () => {
       <div>
         <div className={modules["sunrise-container"]}>
           <h2>Time to sunrise</h2>
-          <span>12 hr 00 min</span>
+          <span>{expectedTimeToSunrise ? expectedTimeToSunrise : '-- --'}</span>
         </div>
         <div className={modules["sunset-container"]}>
           <h2>Time to sunset</h2>
-          <span>2 hr 22 min</span>
+          <span>{expectedTimeToSunset ? expectedTimeToSunset : '-- --'}</span>
         </div>
       </div>
     </div>

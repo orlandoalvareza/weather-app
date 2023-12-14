@@ -19,14 +19,14 @@ const DailyForecast: React.FC = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   useEffect(() => {
-    async function getCurrentWeather() {
+    async function getForecastWeather() {
       setIsLoading(true);
       const forecastData = await fetchForecastWeather(location);
 
       setDailyForecastData(forecastData);
       setIsLoading(false);
     }
-    getCurrentWeather();
+    getForecastWeather();
   }, [location])
 
   const getIcon = (icon: string) => {

@@ -19,14 +19,14 @@ const HourlyForecast: React.FC = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   useEffect(() => {
-    async function getCurrentWeather() {
+    async function getForecastWeather() {
       setIsLoading(true);
       const forecastData = await fetchForecastWeather(location);
 
       setHourlyForecastData(forecastData.list.slice(0,8));
       setIsLoading(false);
     }
-    getCurrentWeather();
+    getForecastWeather();
   }, [location])
 
   const getIcon = (icon: string) => {

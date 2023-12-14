@@ -10,8 +10,8 @@ import { convertAllTemperatures } from "../../util/temperature";
 import modules from './CurrentWeather.module.css';
 
 const CurrentWeather: React.FC = () => {
-  const { isCelsius } = useContext<TempUnitsContextType>(TemperatureUnitsContext);
   const { weatherData, isLoading } = useCurrentWeather();
+  const { isCelsius } = useContext<TempUnitsContextType>(TemperatureUnitsContext);
 
   const cityName = weatherData.name;
   const country = weatherData.sys?.country;

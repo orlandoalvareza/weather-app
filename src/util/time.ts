@@ -39,3 +39,14 @@ export const getCurrentTimeInMin = (timeStamp?: number) => {
   
   return hours * 60 + minutes;
 }
+
+export const getExpectedTime = (totalMinutes: number) => {
+  const seg = totalMinutes * 60;
+  const hours = Math.floor(seg / 3600);
+  const minutes = Math.floor((seg - (hours * 3600)) / 60);
+
+  return `${hours}h ${minutes}m`;
+}
+
+// const time = getExpectedTime(208)
+// console.log(time);
