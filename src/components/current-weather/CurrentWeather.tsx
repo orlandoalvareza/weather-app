@@ -1,34 +1,17 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 
 import Skeleton from '@mui/material/Skeleton';
-import LocationContext from "../../context/location-context";
 import TemperatureUnitsContext from "../../context/temperature-units-context";
+import useCurrentWeather from "../../hooks/useCurrentWeather";
 import { TempUnitsContextType } from "../../interfaces/temperature-units-context";
-import { LocationContextType } from "../../interfaces/location-context";
-import { WeatherData } from "../../interfaces/current-weather";
-import { fetchCurrentWeather } from "../../util/http";
 import { getCurrentDate } from "../../util/time";
 import { convertAllTemperatures } from "../../util/temperature";
 
 import modules from './CurrentWeather.module.css';
 
 const CurrentWeather: React.FC = () => {
-  const { location } = useContext<LocationContextType>(LocationContext);
   const { isCelsius } = useContext<TempUnitsContextType>(TemperatureUnitsContext);
-  const [weatherData, setWeatherData] = useState<WeatherData>({});  
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-
-  useEffect(() => {
-    async function getCurrentWeather() {
-      setIsLoading(true);
-      const data = await fetchCurrentWeather(location);
-
-      setWeatherData(data);
-      setIsLoading(false);
-    }
-
-    getCurrentWeather();
-  }, [location])
+  const { weatherData, isLoading } = useCurrentWeather();
 
   const cityName = weatherData.name;
   const country = weatherData.sys?.country;

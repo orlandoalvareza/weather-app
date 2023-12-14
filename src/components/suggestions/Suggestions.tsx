@@ -1,8 +1,5 @@
-import { useContext, useEffect, useState } from "react";
-
+import useCurrentWeather from "../../hooks/useCurrentWeather";
 import SuggestionElement from "./SuggestionElement";
-import LocationContext from "../../context/location-context";
-import { fetchCurrentWeather } from "../../util/http";
 import { 
   suggestClothing, 
   suggestDrivingSafety, 
@@ -11,7 +8,6 @@ import {
   suggestUmbrellaNeed, 
   suggestWindChill 
 } from "../../util/suggestions";
-import { WeatherData } from "../../interfaces/current-weather";
 import { 
   faPersonRunning,
   faUmbrella,
@@ -20,30 +16,15 @@ import {
   faCarSide,
   faShirt
 } from '@fortawesome/free-solid-svg-icons';
-import { LocationContextType } from "../../interfaces/location-context";
 
 import modules from './Suggestions.module.css';
 
 const Suggestions: React.FC = () => {
-  const { location } = useContext<LocationContextType>(LocationContext);
-  const [measurements, setMeasurements] = useState<WeatherData>({});  
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const { weatherData, isLoading } = useCurrentWeather();
 
-  useEffect(() => {
-    async function getCurrentWeather() {
-      setIsLoading(true);
-      const data = await fetchCurrentWeather(location);
-
-      setMeasurements(data);
-      setIsLoading(false);
-    }
-
-    getCurrentWeather();
-  }, [location])
-
-  const temperature = measurements.main?.temp!;
-  const weatherDescription = measurements.weather?.[0].description!;
-  const visibility = measurements?.visibility!;
+  const temperature = weatherData.main?.temp!;
+  const weatherDescription = weatherData.weather?.[0].description!;
+  const visibility = weatherData?.visibility!;
 
   const outdoorSuggestion = suggestOutdoors(weatherDescription);
   const umbrellaNeedSuggestion = suggestUmbrellaNeed(weatherDescription);

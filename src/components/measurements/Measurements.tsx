@@ -1,30 +1,11 @@
-import { useContext, useEffect, useState } from "react";
-
+import useCurrentWeather from "../../hooks/useCurrentWeather";
 import Skeleton from '@mui/material/Skeleton';
-import LocationContext from "../../context/location-context";
-import { WeatherData } from "../../interfaces/current-weather";
-import { LocationContextType } from "../../interfaces/location-context";
-import { fetchCurrentWeather } from "../../util/http";
 import { getFormattedTime } from "../../util/time";
 
 import modules from './Measurements.module.css';
 
 const Measurements: React.FC = () => {
-  const ctx = useContext<LocationContextType>(LocationContext);
-  const [measurementsData, setMeasurementsData] = useState<WeatherData>({});  
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-
-  useEffect(() => {
-    async function getCurrentWeather() {
-      setIsLoading(true);
-      const data = await fetchCurrentWeather(ctx.location);
-
-      setMeasurementsData(data);
-      setIsLoading(false);
-    }
-
-    getCurrentWeather();
-  }, [ctx])
+  const { weatherData, isLoading } = useCurrentWeather();
 
   const getWindDirection = (deg: number) => {
     const cardinalDirections = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW', 'N'];
@@ -35,20 +16,20 @@ const Measurements: React.FC = () => {
     return cardinalDirections[index];
   }
 
-  const sunrise = getFormattedTime(measurementsData.sys?.sunrise!);
-  const sunset = getFormattedTime(measurementsData.sys?.sunset!);
+  const sunrise = getFormattedTime(weatherData.sys?.sunrise!);
+  const sunset = getFormattedTime(weatherData.sys?.sunset!);
 
-  const pressure = measurementsData.main?.pressure;
-  const humidity = measurementsData.main?.humidity;
-  const windSpeed = measurementsData.wind && (
-    Number(measurementsData.wind.speed * 2.237).toFixed(2)
+  const pressure = weatherData.main?.pressure;
+  const humidity = weatherData.main?.humidity;
+  const windSpeed = weatherData.wind && (
+    Number(weatherData.wind.speed * 2.237).toFixed(2)
   );
-  const windDeg = measurementsData.wind && (
-    getWindDirection(measurementsData.wind.deg)
+  const windDeg = weatherData.wind && (
+    getWindDirection(weatherData.wind.deg)
   );  
-  const cloudiness = measurementsData.clouds?.all;
-  const visibility = measurementsData?.visibility && (
-    Number(measurementsData.visibility * 0.000621371).toFixed(2)
+  const cloudiness = weatherData.clouds?.all;
+  const visibility = weatherData?.visibility && (
+    Number(weatherData.visibility * 0.000621371).toFixed(2)
   );
 
   const skeleton = <Skeleton variant="text" sx={{ fontSize: '18px' }}/>;
