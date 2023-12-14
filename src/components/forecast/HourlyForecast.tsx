@@ -34,8 +34,8 @@ const HourlyForecast: React.FC = () => {
   }
 
   return (
-    <div className={modules["hourly-forecast"]}>
-      <h2>Hourly forecast</h2>
+    <div>
+      <h2 className={modules["forecast-title"]}>Hourly forecast</h2>
       <ul className={modules["forecast-list"]}>
         {hourlyForecastData.map((hourlyForecast: HourlyForecastData, index: number) => (
           <li key={hourlyForecast.dt} className={modules.forecast}>

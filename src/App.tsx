@@ -9,9 +9,9 @@ import DailyForecast from "./components/forecast/DailyForecast";
 import HourlyForecast from "./components/forecast/HourlyForecast";
 import Suggestions from "./components/suggestions/Suggestions";
 import Measurements from "./components/measurements/Measurements";
+import SunriseSunset from "./components/sunrise-sunset/SunriseSunset";
 
 import './App.css';
-import SunriseSunset from "./components/sunrise-sunset/SunriseSunset";
 
 function App() {
   const { onChangeInitialLocation } = useContext(LocationContext);
@@ -44,9 +44,9 @@ function App() {
       <HourlyForecast/>
       <section className="App__section">
         <DailyForecast/>
-        <Suggestions/>
         <Measurements/>
         <SunriseSunset/>
+        <Suggestions/>
       </section>
     </div>
   );

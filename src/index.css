@@ -1,10 +1,10 @@
 :root {
   --theme-one-first-color: #FAFAFA;
-  --theme-one-second-color: #C7EEFF;
-  --theme-one-third-color: #5cc0ee;
+  --theme-one-second-color: #dbecf3;
+  --theme-one-third-color: #55b0e9;
   --theme-one-fourth-color: #0b88d6;
-  --theme-one-fifth-color: #2ea3ec;
-  --theme-one-sixth-color: #303841;
+  --theme-one-fifth-color: #b1defa;
+  --theme-one-sixth-color: rgba(0, 0, 0, 0.16);
 } 
 
 * {

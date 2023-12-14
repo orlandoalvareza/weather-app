@@ -1,11 +1,4 @@
-.hourly-forecast {
-  background: var(--theme-one-fourth-color);
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
-}
-
-.hourly-forecast > h2 {
+.forecast-title {
   font-weight: 500;
   margin-bottom: 15px;
 }
@@ -13,20 +6,18 @@
 .forecast-list {
   display: flex;
   justify-content: space-between;
-  padding-block: 15px;
-  background: var(--theme-one-fifth-color);
 }
 
 .forecast {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
-  width: 13%;
-}
-
-.forecast:not(:last-child) {
-  border-right: 1px solid black;
+  gap: 5px;
+  width: 11.5%;
+  background: var(--theme-one-sixth-color);
+  padding-block: 15px;
+  border-radius: 12px;
+  box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
 }
 
 .forecast-time {

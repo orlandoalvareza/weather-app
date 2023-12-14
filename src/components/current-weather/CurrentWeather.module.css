@@ -10,7 +10,7 @@
 .current-weather-container {
   justify-content: space-between;
   align-items: center;
-  background: var(--theme-one-fourth-color);
+  background: var(--theme-one-sixth-color);
   height: 120px;
   padding-inline: 15px;
   border-radius: 8px;
