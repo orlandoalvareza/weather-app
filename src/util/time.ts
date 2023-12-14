@@ -24,3 +24,18 @@ export const getCurrentDate = (currentDate: number): string => {
 
   return `${dayOfWeek}, ${month} ${day} ${year}`;
 }
+
+export const getCurrentTimeInMin = (timeStamp?: number) => {
+  let time;
+  
+  if (timeStamp) {
+    time = new Date(timeStamp * 1000);
+  } else {
+    time = new Date();
+  }
+
+  const hours = time.getHours();
+  const minutes = time.getMinutes();
+  
+  return hours * 60 + minutes;
+}
