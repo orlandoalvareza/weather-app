@@ -10,7 +10,7 @@
 .current-weather-container {
   justify-content: space-between;
   align-items: center;
-  background: var(--theme-one-sixth-color);
+  background: var(--theme-neutral-second-color);
   height: 120px;
   padding-inline: 15px;
   border-radius: 8px;
@@ -65,3 +65,19 @@
 .temp-container__aside-section {
   justify-content: space-between;
 }
+
+/* .dawn-theme {
+  background: var(--theme-dawn-third-color);
+} */
+
+/* .dayling-theme {
+  background: linear-gradient(120deg, var(--theme-dayling-first-color), var(--theme-dayling-second-color));
+}
+
+.sunset-theme {
+  background: linear-gradient(120deg, var(--theme-sunset-first-color), var(--theme-sunset-second-color));
+}
+
+.evening-theme {
+  background: linear-gradient(120deg, var(--theme-evening-first-color), var(--theme-evening-second-color));
+} */

@@ -7,7 +7,7 @@
 
 .App {
   flex-direction: column;
-  background: linear-gradient(120deg, var(--theme-one-second-color), var(--theme-one-fourth-color));
+  background: linear-gradient(120deg, var(--theme-morning-first-color), var(--theme-morning-third-color));
   width: 100%;
   height: 100vh;
   padding: 15px 20px;
@@ -15,4 +15,16 @@
 
 .dawn-theme {
   background: linear-gradient(120deg, var(--theme-dawn-first-color), var(--theme-dawn-second-color));
+}
+
+.dayling-theme {
+  background: linear-gradient(120deg, var(--theme-dayling-first-color), var(--theme-dayling-second-color));
+}
+
+.sunset-theme {
+  background: linear-gradient(120deg, var(--theme-sunset-first-color), var(--theme-sunset-second-color));
+}
+
+.evening-theme {
+  background: linear-gradient(120deg, var(--theme-evening-first-color), var(--theme-evening-second-color));
 }

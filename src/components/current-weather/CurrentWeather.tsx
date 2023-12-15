@@ -8,10 +8,12 @@ import { getCurrentDate } from "../../util/time";
 import { convertAllTemperatures } from "../../util/temperature";
 
 import modules from './CurrentWeather.module.css';
+import useTheme from "../../hooks/useTheme";
 
 const CurrentWeather: React.FC = () => {
   const { weatherData, isLoading } = useCurrentWeather();
   const { isCelsius } = useContext<TempUnitsContextType>(TemperatureUnitsContext);
+  const theme = useTheme();
 
   const cityName = weatherData.name;
   const country = weatherData.sys?.country;
@@ -33,7 +35,7 @@ const CurrentWeather: React.FC = () => {
   const tempSpanSkeleton = <Skeleton variant="text" sx={{ fontSize: '20px', width: '45px' }}/>;
 
   return (
-    <div className={modules["current-weather-container"]}>
+    <div className={`${modules["current-weather-container"]} ${modules[theme]}`}>
       {isLoading && (
         <div className={modules["location-container"]}>
           <Skeleton variant="rounded" width={200} height={40}/>
