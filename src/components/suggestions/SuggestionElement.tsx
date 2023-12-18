@@ -1,3 +1,4 @@
+import useTheme from '../../hooks/useTheme';
 import Skeleton from '@mui/material/Skeleton';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { SuggestionProps } from "../../interfaces/suggestion";
@@ -5,8 +6,10 @@ import { SuggestionProps } from "../../interfaces/suggestion";
 import modules from './SuggestionElement.module.css';
 
 const SuggestionElement: React.FC<SuggestionProps> = (props) => {
+  const theme = useTheme();
+
   return (
-    <div className={modules["suggestion"]}>
+    <div className={`${modules["suggestion"]} ${modules[theme]}`}>
       <FontAwesomeIcon 
         icon={props.icon} 
         className={modules["suggestion-icon"]}

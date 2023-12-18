@@ -66,9 +66,21 @@
   justify-content: space-between;
 }
 
-/* .dawn-theme {
+.dawn-theme {
   background: var(--theme-dawn-third-color);
-} */
+}
+
+.dawn-theme .location-container h2,
+.dawn-theme .temp-container h1,
+.dawn-theme .temp-container__aside p {
+  color: var(--theme-neutral-fourth-color);
+}
+
+.dawn-theme .location-container h3,
+.dawn-theme .weather-container p,
+.dawn-theme .temp-container span {
+  color: var(--theme-neutral-third-color);
+}
 
 /* .dayling-theme {
   background: linear-gradient(120deg, var(--theme-dayling-first-color), var(--theme-dayling-second-color));

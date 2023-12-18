@@ -17,3 +17,11 @@
   grid-template-columns: repeat(2, 48%);
   gap: 13px;
 }
+
+.dawn-theme {
+  background: var(--theme-dawn-third-color);
+}
+
+.dawn-theme h2 {
+  color: var(--theme-neutral-fourth-color);
+}

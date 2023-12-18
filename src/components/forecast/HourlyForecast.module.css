@@ -35,3 +35,15 @@
   width: 100%;
   text-align: center;
 }
+
+.dawn-theme h2 {
+  color: var(--theme-neutral-third-color);
+}
+
+.dawn-theme .forecast {
+  background: var(--theme-dawn-third-color);
+}
+
+.dawn-theme p {
+  color: var(--theme-neutral-third-color);
+}

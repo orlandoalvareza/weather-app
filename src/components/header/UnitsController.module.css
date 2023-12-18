@@ -30,3 +30,15 @@
 .units-indicator__fahrenheit {
   float: left;
 }
+
+.dawn-theme span {
+  color: var(--theme-neutral-fourth-color);
+}
+
+.dawn-theme .units-indicator {
+  background: var(--theme-dawn-first-color);
+}
+
+.dawn-theme .units-indicator button {
+  border: 0.5px solid var(--theme-dawn-second-color);
+}

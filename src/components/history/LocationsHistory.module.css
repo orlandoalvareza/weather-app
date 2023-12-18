@@ -25,3 +25,9 @@
   background: #BBBFCA; 
   border-radius: 5px;
 }
+
+.dawn-theme .chip {
+  color: var(--theme-neutral-fourth-color);
+  background: var(--theme-dawn-third-color);
+  border: 0.1px solid var(--theme-dawn-fifth-color);
+}

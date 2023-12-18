@@ -1,6 +1,7 @@
 import { useContext } from "react";
 
 import useCurrentWeather from "../../hooks/useCurrentWeather";
+import useTheme from "../../hooks/useTheme";
 import LocationContext from "../../context/location-context";
 import Skeleton from '@mui/material/Skeleton';
 import { getFormattedTime } from "../../util/time";
@@ -11,6 +12,7 @@ import modules from './Measurements.module.css';
 const Measurements: React.FC = () => {
   const { weatherData, isLoading } = useCurrentWeather();
   const { timezone } = useContext<LocationContextType>(LocationContext);
+  const theme = useTheme();
 
   const getWindDirection = (deg: number) => {
     const cardinalDirections = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW', 'N'];
@@ -43,16 +45,16 @@ const Measurements: React.FC = () => {
   const skeleton = <Skeleton variant="text" sx={{ fontSize: '18px' }}/>;
 
   return (
-    <div className={modules["measurements-container"]}>
+    <div className={`${modules["measurements-container"]} ${modules[theme]}`}>
       <h2>Measurements</h2>
       <div className={modules["measurements"]}>
-        {isLoading ? skeleton : <p>Sunrise: {sunrise}</p>}
-        {isLoading ? skeleton : <p>Sunset: {sunset}</p>}
-        {isLoading ? skeleton : <p>Pressure: {pressure} hPa</p>}
-        {isLoading ? skeleton : <p>Humidity: {humidity} %</p>}
-        {isLoading ? skeleton : <p>Wind: {windSpeed} mph, {windDeg}</p>}
-        {isLoading ? skeleton : <p>Cloudiness: {cloudiness} %</p>}
-        {isLoading ? skeleton : <p>Visibility: {visibility} mi</p>}
+        {isLoading ? skeleton : <p>Sunrise: <span>{sunrise}</span></p>}
+        {isLoading ? skeleton : <p>Sunset: <span>{sunset}</span></p>}
+        {isLoading ? skeleton : <p>Pressure: <span>{pressure} hPa</span></p>}
+        {isLoading ? skeleton : <p>Humidity: <span>{humidity} %</span></p>}
+        {isLoading ? skeleton : <p>Wind: <span>{windSpeed} mph</span>, <span>{windDeg}</span></p>}
+        {isLoading ? skeleton : <p>Cloudiness: <span>{cloudiness} %</span></p>}
+        {isLoading ? skeleton : <p>Visibility: <span>{visibility} mi</span></p>}
       </div>
     </div> 
   )

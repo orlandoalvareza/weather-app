@@ -1,11 +1,13 @@
 import { useContext } from 'react';
 
 import TemperatureUnitsContext from '../../context/temperature-units-context';
+import useTheme from '../../hooks/useTheme';
 
 import modules from './UnitsController.module.css';
 
 const UnitsController: React.FC = () => {
   const ctx = useContext(TemperatureUnitsContext);
+  const theme = useTheme();
 
   const TemperatureUnitHandler = () => {
     ctx.onChangeTempUnit();
@@ -16,7 +18,7 @@ const UnitsController: React.FC = () => {
   )
 
   return (
-    <div className={modules["units-controller"]}>
+    <div className={`${modules["units-controller"]} ${modules[theme]}`}>
       <span>°F</span>
       <div className={modules["units-indicator"]}>
         <button 

@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 
 import useCurrentWeather from '../../hooks/useCurrentWeather';
+import useTheme from '../../hooks/useTheme';
 import LocationContext from '../../context/location-context';
 import { getCurrentTimeInSeconds, getExpectedTime } from '../../util/time';
 import { LocationContextType } from '../../interfaces/location-context';
@@ -10,6 +11,7 @@ import modules from './SunriseSunset.module.css';
 const SunriseSunset: React.FC = () => {
   const { weatherData, isLoading } = useCurrentWeather();
   const { timezone } = useContext<LocationContextType>(LocationContext);
+  const theme = useTheme();
 
   const currentTimezone = weatherData?.timezone!;
   const timezoneDifference = currentTimezone - timezone;
@@ -30,7 +32,7 @@ const SunriseSunset: React.FC = () => {
   }
 
   return (
-    <div className={modules["sunrise-sunset-container"]}>
+    <div className={`${modules["sunrise-sunset-container"]} ${modules[theme]}`}>
       <h2>Sunrise - Sunset</h2>
       <div>
         <div className={modules["sunrise-container"]}>

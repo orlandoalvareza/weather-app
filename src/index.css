@@ -1,11 +1,14 @@
 :root {
   --theme-neutral-first-color: #FAFAFA;
   --theme-neutral-second-color: rgba(0, 0, 0, 0.16);
-  --theme-neutral-third-color: rgba(250, 250, 250, 0.6);
+  --theme-neutral-third-color: #cac7c7;
+  --theme-neutral-fourth-color: #dad2d2;
 
   --theme-dawn-first-color: #624F82;
   --theme-dawn-second-color: #0c234e;
-  --theme-dawn-third-color: rgba(48, 32, 77, 0.4);
+  --theme-dawn-third-color: rgba(10, 10, 12, 0.3);
+  --theme-dawn-fourth-color: rgba(107, 86, 145, 0.4);
+  --theme-dawn-fifth-color: rgb(197, 181, 228);
   
   --theme-morning-first-color: #dbecf3;
   /* --theme-morning-second-color: #b1defa; */

@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 
 import LocationContext from "../../context/location-context";
 import TemperatureUnitsContext from "../../context/temperature-units-context";
+import useTheme from "../../hooks/useTheme";
 import Skeleton from '@mui/material/Skeleton';
 import { DailyForecastData, WeatherListForecast } from "../../interfaces/daily-forecast";
 import { LocationContextType } from "../../interfaces/location-context";
@@ -17,6 +18,7 @@ const DailyForecast: React.FC = () => {
   const { isCelsius } = useContext<TempUnitsContextType>(TemperatureUnitsContext);
   const [dailyForecastData, setDailyForecastData] = useState<DailyForecastData>({});
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const theme = useTheme();
 
   useEffect(() => {
     async function getForecastWeather() {
@@ -38,7 +40,7 @@ const DailyForecast: React.FC = () => {
   );
 
   return (
-    <div className={modules["daily-forecast"]}>
+    <div className={`${modules["daily-forecast"]} ${modules[theme]}`}>
       <h2>Daily forecast</h2>
       <ul className={modules["forecast-list"]}>
         {filteredDailyForecast?.map((dailyForecast: WeatherListForecast, index: number) => (

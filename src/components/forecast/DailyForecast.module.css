@@ -41,3 +41,20 @@
 .forecast span {
   font-size: 18px;
 }
+
+.dawn-theme {
+  background: var(--theme-dawn-third-color);
+}
+
+.dawn-theme h2 {
+  color: var(--theme-neutral-fourth-color);
+}
+
+.dawn-theme .forecast {
+  background: var(--theme-dawn-fourth-color);
+}
+
+.dawn-theme p,
+.dawn-theme span {
+  color: var(--theme-neutral-third-color);
+}

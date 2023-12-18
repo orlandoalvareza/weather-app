@@ -21,3 +21,16 @@
 .suggestion__info p:first-child {
   margin-bottom: 5px;
 }
+
+.dawn-theme {
+  background: var(--theme-dawn-fourth-color);
+}
+
+.dawn-theme .suggestion-icon,
+.dawn-theme .suggestion__info p:first-child {
+  color: var(--theme-neutral-third-color);
+}
+
+.dawn-theme .suggestion__info p:last-child {
+  color: #adabab;
+}

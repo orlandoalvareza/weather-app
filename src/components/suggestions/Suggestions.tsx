@@ -1,4 +1,5 @@
 import useCurrentWeather from "../../hooks/useCurrentWeather";
+import useTheme from "../../hooks/useTheme";
 import SuggestionElement from "./SuggestionElement";
 import { 
   suggestClothing, 
@@ -21,6 +22,7 @@ import modules from './Suggestions.module.css';
 
 const Suggestions: React.FC = () => {
   const { weatherData, isLoading } = useCurrentWeather();
+  const theme = useTheme();
 
   const temperature = weatherData.main?.temp!;
   const weatherDescription = weatherData.weather?.[0].description!;
@@ -34,7 +36,7 @@ const Suggestions: React.FC = () => {
   const heatStrokeSuggestion = suggestHeatStroke(temperature);
 
   return (
-    <div className={modules["suggestions-container"]}>
+    <div className={`${modules["suggestions-container"]} ${modules[theme]}`}>
       <h2>Suggestions for your day</h2>
       <div className={modules["suggestions"]}>
         <SuggestionElement 

@@ -3,12 +3,12 @@ import { useContext } from "react";
 import Skeleton from '@mui/material/Skeleton';
 import TemperatureUnitsContext from "../../context/temperature-units-context";
 import useCurrentWeather from "../../hooks/useCurrentWeather";
+import useTheme from "../../hooks/useTheme";
 import { TempUnitsContextType } from "../../interfaces/temperature-units-context";
 import { getCurrentDate } from "../../util/time";
 import { convertAllTemperatures } from "../../util/temperature";
 
 import modules from './CurrentWeather.module.css';
-import useTheme from "../../hooks/useTheme";
 
 const CurrentWeather: React.FC = () => {
   const { weatherData, isLoading } = useCurrentWeather();

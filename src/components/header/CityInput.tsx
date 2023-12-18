@@ -6,10 +6,12 @@ import { LocationContextType } from "../../interfaces/location-context";
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
 import modules from './CityInput.module.css';
+import useTheme from "../../hooks/useTheme";
 
 const CityInput: React.FC = () =>  {
   const ctx = useContext<LocationContextType>(LocationContext);
   const locationRef = useRef<HTMLInputElement>(null);
+  const theme = useTheme();
 
   const submitLocationHandler = (event: React.FormEvent) => {
     event.preventDefault();
@@ -24,7 +26,7 @@ const CityInput: React.FC = () =>  {
   }
 
   return (
-    <form onSubmit={submitLocationHandler}>
+    <form onSubmit={submitLocationHandler} className={modules[theme]}>
       <input 
         ref={locationRef} 
         className={modules["city-input"]}

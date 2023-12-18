@@ -1,6 +1,7 @@
 import { Fragment, forwardRef, useContext, useState } from 'react';
 
 import LocationContext from '../../context/location-context';
+import useTheme from '../../hooks/useTheme';
 import { LocationContextType } from '../../interfaces/location-context';
 import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
@@ -20,6 +21,7 @@ const Alert = forwardRef<HTMLDivElement, AlertProps>(function Alert(
 const LocationsHistory: React.FC = () => {
   const ctx = useContext<LocationContextType>(LocationContext);
   const [isSnackbarOpen, setIsSnackbarOpen] = useState<boolean>(false);
+  const theme = useTheme();
 
   const addLocationHandler = (city: string) => {
     ctx.onChangeLocation(city);
@@ -42,7 +44,7 @@ const LocationsHistory: React.FC = () => {
 
   return (
     <Fragment>
-      <Stack direction="row" spacing={1} className={modules.stack}>
+      <Stack direction="row" spacing={1} className={`${modules.stack} ${modules[theme]}`}>
         {ctx.locationsHistory.map(location => (
           <Chip key={location.id}
             label={location.city}
