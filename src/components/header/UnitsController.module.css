@@ -44,6 +44,18 @@
   border: 0.5px solid var(--theme-dawn-second-color);
 }
 
+.sunset-theme span {
+  color: var(--theme-neutral-first-color);
+}
+
+.sunset-theme .units-indicator {
+  background: var(--theme-sunset-fifth-color);
+}
+
+.sunset-theme .units-indicator button {
+  border: 1px solid var(--theme-neutral-fifth-color);
+}
+
 .evening-theme span {
   color: var(--theme-neutral-first-color);
 }

@@ -59,6 +59,23 @@
   color: var(--theme-neutral-third-color);
 }
 
+.sunset-theme {
+  background: var(--theme-sunset-third-color);
+}
+
+.sunset-theme h2 {
+  color: var(--theme-neutral-first-color);
+}
+
+.sunset-theme .forecast {
+  background: var(--theme-sunset-fourth-color);
+}
+
+.sunset-theme p,
+.sunset-theme span {
+  color: var(--theme-neutral-fourth-color);
+}
+
 .evening-theme {
   background: var(--theme-evening-third-color);
 }

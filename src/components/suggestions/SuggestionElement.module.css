@@ -42,6 +42,23 @@
   color: #adabab;
 }
 
+.sunset-theme {
+  background: var(--theme-sunset-fourth-color);
+}
+
+.sunset-theme .suggestion-icon,
+.sunset-theme .suggestion__info p:first-child {
+  color: var(--theme-neutral-fourth-color);
+}
+
+.sunset-theme .suggestion__info p:first-child {
+  border-bottom: 0.5px solid var(--theme-sunset-fifth-color);
+}
+
+.sunset-theme .suggestion__info p:last-child {
+  color: var(--theme-neutral-third-color);
+}
+
 .evening-theme {
   background: var(--theme-evening-fourth-color);
 }

@@ -12,6 +12,10 @@
   background: var(--theme-dawn-third-color);
 }
 
+.sunset-theme {
+  background: var(--theme-sunset-third-color);
+}
+
 .evening-theme {
   background: var(--theme-evening-third-color);
 }

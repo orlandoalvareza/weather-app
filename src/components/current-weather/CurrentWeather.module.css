@@ -87,6 +87,22 @@
   color: var(--theme-neutral-third-color);
 }
 
+.sunset-theme {
+  background: var(--theme-sunset-third-color);
+}
+
+.sunset-theme .location-container h2,
+.sunset-theme .temp-container h1,
+.sunset-theme .temp-container__aside p {
+  color: var(--theme-neutral-first-color);
+}
+
+.sunset-theme .location-container h3,
+.sunset-theme .weather-container p,
+.sunset-theme .temp-container span {
+  color: var(--theme-neutral-fourth-color);
+}
+
 .evening-theme {
   background: var(--theme-evening-third-color);
 }

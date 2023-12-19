@@ -22,6 +22,9 @@
 
   --theme-sunset-first-color: #eee99d;
   --theme-sunset-second-color: #be2c2c;
+  --theme-sunset-third-color: rgba(54, 4, 4, 0.4);
+  --theme-sunset-fourth-color: rgba(71, 15, 15, 0.2);
+  --theme-sunset-fifth-color: #f3d4bd;
 
   --theme-evening-first-color: #787A91;
   --theme-evening-second-color: #162f5e;

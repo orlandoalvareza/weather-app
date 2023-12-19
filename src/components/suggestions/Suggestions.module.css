@@ -26,6 +26,14 @@
   color: var(--theme-neutral-fourth-color);
 }
 
+.sunset-theme {
+  background: var(--theme-sunset-third-color);
+}
+
+.sunset-theme h2 {
+  color: var(--theme-neutral-first-color);
+}
+
 .evening-theme {
   background: var(--theme-evening-third-color);
 }

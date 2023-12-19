@@ -32,6 +32,12 @@
   border: 0.1px solid var(--theme-dawn-fifth-color);
 }
 
+.sunset-theme .chip {
+  color: var(--theme-neutral-first-color);
+  background: var(--theme-sunset-third-color);
+  border: 0.1px solid var(--theme-sunset-fifth-color);
+}
+
 .evening-theme .chip {
   color: var(--theme-neutral-first-color);
   background: var(--theme-evening-third-color);
