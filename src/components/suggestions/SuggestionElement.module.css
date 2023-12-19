@@ -19,7 +19,8 @@
 }
 
 .suggestion__info p:first-child {
-  margin-bottom: 5px;
+  margin-bottom: 4px;
+  border-bottom: 0.5px solid black;
 }
 
 .dawn-theme {
@@ -31,6 +32,27 @@
   color: var(--theme-neutral-third-color);
 }
 
+.dawn-theme .suggestion__info p:first-child {
+  border-bottom: 0.5px solid var(--theme-dawn-fifth-color);
+}
+
 .dawn-theme .suggestion__info p:last-child {
   color: #adabab;
+}
+
+.evening-theme {
+  background: var(--theme-evening-fourth-color);
+}
+
+.evening-theme .suggestion-icon,
+.evening-theme .suggestion__info p:first-child {
+  color: var(--theme-neutral-fourth-color);
+}
+
+.evening-theme .suggestion__info p:first-child {
+  border-bottom: 0.5px solid var(--theme-evening-fifth-color);
+}
+
+.evening-theme .suggestion__info p:last-child {
+  color: var(--theme-neutral-third-color);
 }

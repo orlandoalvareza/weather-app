@@ -82,14 +82,18 @@
   color: var(--theme-neutral-third-color);
 }
 
-/* .dayling-theme {
-  background: linear-gradient(120deg, var(--theme-dayling-first-color), var(--theme-dayling-second-color));
-}
-
-.sunset-theme {
-  background: linear-gradient(120deg, var(--theme-sunset-first-color), var(--theme-sunset-second-color));
-}
-
 .evening-theme {
-  background: linear-gradient(120deg, var(--theme-evening-first-color), var(--theme-evening-second-color));
-} */
+  background: var(--theme-evening-third-color);
+}
+
+.evening-theme .location-container h2,
+.evening-theme .temp-container h1,
+.evening-theme .temp-container__aside p {
+  color: var(--theme-neutral-first-color);
+}
+
+.evening-theme .location-container h3,
+.evening-theme .weather-container p,
+.evening-theme .temp-container span {
+  color: var(--theme-neutral-fourth-color);
+}

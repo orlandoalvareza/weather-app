@@ -58,3 +58,20 @@
 .dawn-theme span {
   color: var(--theme-neutral-third-color);
 }
+
+.evening-theme {
+  background: var(--theme-evening-third-color);
+}
+
+.evening-theme h2 {
+  color: var(--theme-neutral-first-color);
+}
+
+.evening-theme .forecast {
+  background: var(--theme-evening-fourth-color);
+}
+
+.evening-theme p,
+.evening-theme span {
+  color: var(--theme-neutral-fourth-color);
+}

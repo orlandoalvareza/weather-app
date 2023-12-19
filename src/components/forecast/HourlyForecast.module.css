@@ -47,3 +47,15 @@
 .dawn-theme p {
   color: var(--theme-neutral-third-color);
 }
+
+.evening-theme h2 {
+  color: var(--theme-neutral-first-color);
+}
+
+.evening-theme .forecast {
+  background: var(--theme-evening-third-color);
+}
+
+.evening-theme p {
+  color: var(--theme-neutral-third-color);
+}

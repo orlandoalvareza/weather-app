@@ -31,3 +31,9 @@
   background: var(--theme-dawn-third-color);
   border: 0.1px solid var(--theme-dawn-fifth-color);
 }
+
+.evening-theme .chip {
+  color: var(--theme-neutral-first-color);
+  background: var(--theme-evening-third-color);
+  border: 0.1px solid var(--theme-evening-fifth-color);
+}

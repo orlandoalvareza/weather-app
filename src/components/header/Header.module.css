@@ -11,3 +11,7 @@
 .dawn-theme {
   background: var(--theme-dawn-third-color);
 }
+
+.evening-theme {
+  background: var(--theme-evening-third-color);
+}
