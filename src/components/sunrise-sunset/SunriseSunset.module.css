@@ -11,6 +11,11 @@
   margin-bottom: 10px;
 }
 
+.sunrise-container > h2,
+.sunset-container > h2 {
+  color: var(--theme-morning-fifth-color);
+}
+
 .dawn-theme {
   background: var(--theme-dawn-third-color);
 }

@@ -10,17 +10,19 @@
 
 .suggestion-icon {
   font-size: 25px;
+  color: var(--theme-morning-fifth-color);
   padding: 5px;
 }
 
 .suggestion__info {
-  text-align: center;
   width: 100px;
+  text-align: center;
 }
 
 .suggestion__info p:first-child {
   margin-bottom: 4px;
-  border-bottom: 0.5px solid black;
+  color: var(--theme-morning-fifth-color);
+  border-bottom: 0.5px solid var(--theme-morning-fifth-color);
 }
 
 .dawn-theme {

@@ -1,16 +1,27 @@
 .city-input {
   font-size: 18px;
+  color: var(--theme-morning-fifth-color);
+  background: var(--theme-morning-first-color);
   padding: 3px 10px;
   margin-right: 10px;
   border: none;
   border-radius: 5px;
 }
 
+.city-input:focus {
+  background: var(--theme-neutral-first-color);
+}
+
 .search-button {
+  background: var(--theme-morning-first-color);
   padding: 5px 8px;
   border-radius: 5px;
   border: none;
   cursor: pointer;
+}
+
+.search-button:hover {
+  background: var(--theme-neutral-first-color);
 }
 
 .search-icon {

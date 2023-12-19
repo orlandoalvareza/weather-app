@@ -9,7 +9,7 @@ const useTheme = () => {
   
   useEffect(() => {
     // const time = getCurrentTimeInSeconds();
-    const time = 68500;
+    const time = 21600;
 
     if (time >= 0 && time < 21600) {
       onChangeTheme('dawn-theme');

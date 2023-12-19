@@ -9,16 +9,17 @@
 }
 
 .units-indicator {
+  background: var(--theme-morning-fourth-color);
   width: 50px;
   border-radius: 18px;
-  border: 0.5px solid black;
+  border: 0.5px solid var(--theme-neutral-fifth-color);
 }
 
 .units-indicator button {
   background: var(--theme-neutral-first-color);
   width: 25px;
   height: 100%;
-  border: 0.5px solid var(--theme-neutral-second-color);
+  border: 0.5px solid var(--theme-neutral-fifth-color);
   border-radius: 18px;
   cursor: pointer;
 }
