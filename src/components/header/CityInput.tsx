@@ -1,12 +1,12 @@
 import { useContext, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+import useTheme from "../../hooks/useTheme";
 import LocationContext from "../../context/location-context";
 import { LocationContextType } from "../../interfaces/location-context";
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
 import modules from './CityInput.module.css';
-import useTheme from "../../hooks/useTheme";
 
 const CityInput: React.FC = () =>  {
   const ctx = useContext<LocationContextType>(LocationContext);
