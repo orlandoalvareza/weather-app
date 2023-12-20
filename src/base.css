@@ -4,31 +4,41 @@
   --theme-neutral-third-color: #cac7c7;
   --theme-neutral-fourth-color: #dad2d2;
   --theme-neutral-fifth-color: #000;
+}
 
+:root {
   --theme-dawn-first-color: #624F82;
   --theme-dawn-second-color: #0c234e;
   --theme-dawn-third-color: rgba(10, 10, 12, 0.3);
   --theme-dawn-fourth-color: rgba(107, 86, 145, 0.4);
   --theme-dawn-fifth-color: rgb(197, 181, 228);
-  
+}
+
+:root {
   --theme-morning-first-color: #e6f8ff;
   --theme-morning-second-color: rgba(235, 242, 255, 0.5);
   --theme-morning-third-color: #0b88d6;
   --theme-morning-fourth-color: #70b9e7;
   --theme-morning-fifth-color: #0a2b49;
+}
 
+:root {
   --theme-dayling-first-color: #87cfbd;
   --theme-dayling-second-color: #0679d6;
   --theme-dayling-third-color: rgba(1, 10, 10, 0.3);
   --theme-dayling-fourth-color: rgba(21, 49, 49, 0.3);
   --theme-dayling-fifth-color: #d6f1eb;
+}
 
+:root {
   --theme-sunset-first-color: #eee99d;
   --theme-sunset-second-color: #be2c2c;
   --theme-sunset-third-color: rgba(54, 4, 4, 0.4);
   --theme-sunset-fourth-color: rgba(71, 15, 15, 0.2);
   --theme-sunset-fifth-color: #f3d4bd;
+}
 
+:root {
   --theme-evening-first-color: #787A91;
   --theme-evening-second-color: #162f5e;
   --theme-evening-third-color: rgba(2, 14, 44, 0.4);
