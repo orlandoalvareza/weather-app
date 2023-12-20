@@ -44,6 +44,19 @@
   border: 0.5px solid var(--theme-dawn-second-color);
 }
 
+.dayling-theme span {
+  color: var(--theme-neutral-fourth-color);
+}
+
+.dayling-theme .units-indicator {
+  background: var(--theme-dayling-fourth-color);
+  border: 0.5px solid var(--theme-neutral-fourth-color);
+}
+
+.dayling-theme .units-indicator button {
+  border: 0.5px solid var(--theme-neutral-fifth-color);
+}
+
 .sunset-theme span {
   color: var(--theme-neutral-first-color);
 }

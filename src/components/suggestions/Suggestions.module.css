@@ -26,6 +26,14 @@
   color: var(--theme-neutral-fourth-color);
 }
 
+.dayling-theme {
+  background: var(--theme-dayling-third-color);
+}
+
+.dayling-theme h2 {
+  color: var(--theme-neutral-first-color);
+}
+
 .sunset-theme {
   background: var(--theme-sunset-third-color);
 }

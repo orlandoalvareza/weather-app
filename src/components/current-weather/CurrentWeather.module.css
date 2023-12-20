@@ -87,8 +87,24 @@
   color: var(--theme-neutral-third-color);
 }
 
+.dayling-theme {
+  background: var(--theme-dayling-third-color);
+}
+
+.dayling-theme .location-container h2,
+.dayling-theme .temp-container h1,
+.dayling-theme .temp-container__aside p {
+  color: var(--theme-neutral-first-color);
+}
+
+.dayling-theme .location-container h3,
+.dayling-theme .weather-container p,
+.dayling-theme .temp-container span {
+  color: var(--theme-neutral-fourth-color);
+}
+
 .sunset-theme {
-  background: var(--theme-sunset-third-color);
+  background: var(--theme-sunset-fourth-color);
 }
 
 .sunset-theme .location-container h2,

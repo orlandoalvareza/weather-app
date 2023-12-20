@@ -47,6 +47,19 @@
  color: var(--theme-dawn-second-color);
 }
 
+.dayling-theme .city-input {
+  color: var(--theme-neutral-fifth-color);
+  background: var(--theme-neutral-fourth-color);
+}
+
+.dayling-theme .search-button {
+  background: var(--theme-neutral-fourth-color);
+}
+
+.dayling-theme .search-button:hover {
+  background: var(--theme-neutral-first-color);
+}
+
 .sunset-theme .city-input {
   background: var(--theme-neutral-first-color);
 }

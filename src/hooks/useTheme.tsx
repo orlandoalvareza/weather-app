@@ -8,8 +8,7 @@ const useTheme = () => {
   const { theme, onChangeTheme } = useContext<ThemeContextType>(ThemeContext);
   
   useEffect(() => {
-    // const time = getCurrentTimeInSeconds();
-    const time = 50400;
+    const time = getCurrentTimeInSeconds();
 
     if (time >= 0 && time < 21600) {
       onChangeTheme('dawn-theme');

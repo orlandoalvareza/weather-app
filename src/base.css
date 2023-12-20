@@ -19,6 +19,9 @@
 
   --theme-dayling-first-color: #87cfbd;
   --theme-dayling-second-color: #0679d6;
+  --theme-dayling-third-color: rgba(1, 10, 10, 0.3);
+  --theme-dayling-fourth-color: rgba(21, 49, 49, 0.3);
+  --theme-dayling-fifth-color: #d6f1eb;
 
   --theme-sunset-first-color: #eee99d;
   --theme-sunset-second-color: #be2c2c;

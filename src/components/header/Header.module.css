@@ -12,6 +12,10 @@
   background: var(--theme-dawn-third-color);
 }
 
+.dayling-theme {
+  background: var(--theme-dayling-third-color);
+}
+
 .sunset-theme {
   background: var(--theme-sunset-third-color);
 }
