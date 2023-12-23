@@ -22,6 +22,7 @@ const SunriseSunset: React.FC = () => {
 
   let expectedTimeToSunrise;
   let expectedTimeToSunset;
+  let expectedNewDayTimeToSunrise;
 
   if (sunrise - currentTime > 0) {
     expectedTimeToSunrise = getExpectedTime(sunrise - currentTime);
@@ -31,13 +32,28 @@ const SunriseSunset: React.FC = () => {
     expectedTimeToSunset = getExpectedTime(sunset - currentTime);
   }
 
+  if (!expectedTimeToSunrise && !expectedTimeToSunset) {
+    const totalCurrentSecondsOfDay = getCurrentTimeInSeconds();
+    const remainingSecondsOfDay = 86400 - totalCurrentSecondsOfDay;
+    const totalOfSecondsToSunrise = remainingSecondsOfDay + sunrise;
+    expectedNewDayTimeToSunrise = getExpectedTime(totalOfSecondsToSunrise);
+  }
+
   return (
     <div className={`${modules["sunrise-sunset-container"]} ${modules[theme]}`}>
       <h2>Sunrise - Sunset</h2>
       <div>
         <div className={modules["sunrise-container"]}>
           <h2>Time to sunrise</h2>
-          <span>{expectedTimeToSunrise ? expectedTimeToSunrise : '-- --'}</span>
+          {!expectedNewDayTimeToSunrise && (
+            <span>{expectedTimeToSunrise}</span>
+          )}
+          {expectedNewDayTimeToSunrise && (
+            <span>{expectedNewDayTimeToSunrise}</span>
+          )}
+          {!expectedTimeToSunrise && expectedTimeToSunset && (
+            <span>-- --</span>
+          )}
         </div>
         <div className={modules["sunset-container"]}>
           <h2>Time to sunset</h2>
