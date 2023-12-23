@@ -3,10 +3,12 @@ import { useContext } from 'react';
 import useCurrentWeather from '../../hooks/useCurrentWeather';
 import useTheme from '../../hooks/useTheme';
 import LocationContext from '../../context/location-context';
+import RemainingTimeBar from './RemainingTimeBar';
 import { getCurrentTimeInSeconds, getExpectedTime } from '../../util/time';
 import { LocationContextType } from '../../interfaces/location-context';
 
 import modules from './SunriseSunset.module.css';
+
 
 const SunriseSunset: React.FC = () => {
   const { weatherData, isLoading } = useCurrentWeather();
@@ -22,7 +24,9 @@ const SunriseSunset: React.FC = () => {
 
   let expectedTimeToSunrise;
   let expectedTimeToSunset;
+
   let expectedNewDayTimeToSunrise;
+  let totalOfSecondsToSunrise;
 
   if (sunrise - currentTime > 0) {
     expectedTimeToSunrise = getExpectedTime(sunrise - currentTime);
@@ -35,7 +39,8 @@ const SunriseSunset: React.FC = () => {
   if (!expectedTimeToSunrise && !expectedTimeToSunset) {
     const totalCurrentSecondsOfDay = getCurrentTimeInSeconds();
     const remainingSecondsOfDay = 86400 - totalCurrentSecondsOfDay;
-    const totalOfSecondsToSunrise = remainingSecondsOfDay + sunrise;
+    totalOfSecondsToSunrise = remainingSecondsOfDay + sunrise;
+    // console.log(totalOfSecondsToSunrise);
     expectedNewDayTimeToSunrise = getExpectedTime(totalOfSecondsToSunrise);
   }
 
@@ -46,10 +51,16 @@ const SunriseSunset: React.FC = () => {
         <div className={modules["sunrise-container"]}>
           <h2>Time to sunrise</h2>
           {!expectedNewDayTimeToSunrise && (
-            <span>{expectedTimeToSunrise}</span>
+            <>
+              <span>{expectedTimeToSunrise}</span>
+              <RemainingTimeBar timeRemainingInSeconds={sunrise - currentTime} />
+            </>
           )}
           {expectedNewDayTimeToSunrise && (
-            <span>{expectedNewDayTimeToSunrise}</span>
+            <>
+              <span>{expectedNewDayTimeToSunrise}</span>
+              {/* <RemainingTimeBar timeRemainingInSeconds={totalOfSecondsToSunrise} /> */}
+            </>
           )}
           {!expectedTimeToSunrise && expectedTimeToSunset && (
             <span>-- --</span>
@@ -58,6 +69,7 @@ const SunriseSunset: React.FC = () => {
         <div className={modules["sunset-container"]}>
           <h2>Time to sunset</h2>
           <span>{expectedTimeToSunset ? expectedTimeToSunset : '-- --'}</span>
+          {expectedTimeToSunset && <RemainingTimeBar timeRemainingInSeconds={sunset} />}
         </div>
       </div>
     </div>
