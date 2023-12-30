@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 
 import { RemainingTimeBarProps } from "../../interfaces/remaining-time-bar";
 
+import modules from './RemainingTimeBar.module.css';
+
 const RemainingTimeBar: React.FC<RemainingTimeBarProps> = ({ timeRemainingInSeconds }) => {
   const [progress, setProgress] = useState<number>(0);
 
@@ -19,7 +21,7 @@ const RemainingTimeBar: React.FC<RemainingTimeBarProps> = ({ timeRemainingInSeco
     return () => clearInterval(intervalId);
   }, [timeRemainingInSeconds]);
 
-  return <progress value={progress} max="100"></progress>;
+  return <progress className={modules.progress} value={progress} max="100"></progress>;
 };
 
 export default RemainingTimeBar;

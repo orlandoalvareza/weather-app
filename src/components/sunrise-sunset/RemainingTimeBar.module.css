@@ -1,0 +1,45 @@
+/* progress {
+  width: 200px;
+  height: 20px; 
+  border-radius: 10px; 
+  appearance: none;
+} */
+
+/* progress::-webkit-progress-bar {
+  background-color: #ddd;
+  border-radius: 10px; 
+}
+
+progress::-webkit-progress-value {
+  background-color: #4caf50;
+  border-radius: 10px;
+} */
+
+.progress-container {
+  position: relative;
+  width: 200px;
+  height: 20px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 100%;
+  background-color: #ddd;
+  border-radius: 10px; /* Radio de la barra de progreso */
+}
+
+.progress-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-color: #4caf50; /* Color de la barra de progreso */
+  border-radius: 10px; /* Radio de la barra de progreso */
+
+  /* Pseudo-elemento para la forma curva */
+  content: '';
+  width: 100%;
+  border-radius: 50%;
+  background: inherit;
+}

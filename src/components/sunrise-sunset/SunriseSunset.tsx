@@ -40,7 +40,7 @@ const SunriseSunset: React.FC = () => {
     const totalCurrentSecondsOfDay = getCurrentTimeInSeconds();
     const remainingSecondsOfDay = 86400 - totalCurrentSecondsOfDay;
     totalOfSecondsToSunrise = remainingSecondsOfDay + sunrise;
-    // console.log(totalOfSecondsToSunrise);
+    console.log(totalOfSecondsToSunrise);
     expectedNewDayTimeToSunrise = getExpectedTime(totalOfSecondsToSunrise);
   }
 
@@ -56,10 +56,10 @@ const SunriseSunset: React.FC = () => {
               <RemainingTimeBar timeRemainingInSeconds={sunrise - currentTime} />
             </>
           )}
-          {expectedNewDayTimeToSunrise && (
+          {expectedNewDayTimeToSunrise && totalOfSecondsToSunrise && (
             <>
               <span>{expectedNewDayTimeToSunrise}</span>
-              {/* <RemainingTimeBar timeRemainingInSeconds={totalOfSecondsToSunrise} /> */}
+              <RemainingTimeBar timeRemainingInSeconds={totalOfSecondsToSunrise} />
             </>
           )}
           {!expectedTimeToSunrise && expectedTimeToSunset && (
