@@ -7,7 +7,7 @@ import { RemainingTimeBarProps } from "../../interfaces/remaining-time-bar";
 
 import modules from './RemainingTimeBar.module.css';
 
-const RemainingTimeBar: React.FC<RemainingTimeBarProps> = ({ timeRemainingInSeconds }) => {
+const RemainingTimeBar: React.FC<RemainingTimeBarProps> = ({ timeRemainingInSeconds, expectedTime }) => {
   const [progress, setProgress] = useState<number>(0);
 
   const totalDayTimeInSeconds = 86400;
@@ -24,12 +24,9 @@ const RemainingTimeBar: React.FC<RemainingTimeBarProps> = ({ timeRemainingInSeco
     return () => clearInterval(intervalId);
   }, [timeRemainingInSeconds]);
 
-  console.log(progress);
-
-  // return <progress className={modules.progress} value={progress} max="100"></progress>;
   return (
-    <div style={{ width: 80, height: 100 }}>
-      <CircularProgressbar value={Math.round(progress)} text={`${Math.round(progress)}`} />
+    <div style={{ width: 100, height: 110 }}>
+      <CircularProgressbar value={Math.round(progress)} text={expectedTime} />
     </div>
   )
 };
