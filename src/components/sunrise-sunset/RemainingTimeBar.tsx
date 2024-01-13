@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
 
-import { CircularProgressbar } from 'react-circular-progressbar';
-import 'react-circular-progressbar/dist/styles.css';
-
+import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import { RemainingTimeBarProps } from "../../interfaces/remaining-time-bar";
+import 'react-circular-progressbar/dist/styles.css';
 
 import modules from './RemainingTimeBar.module.css';
 
@@ -25,8 +24,19 @@ const RemainingTimeBar: React.FC<RemainingTimeBarProps> = ({ timeRemainingInSeco
   }, [timeRemainingInSeconds]);
 
   return (
-    <div style={{ width: 100, height: 100 }}>
-      <CircularProgressbar value={Math.round(progress)} text={expectedTime} />
+    <div className={modules["remaining-time-bar"]}>
+      <CircularProgressbar 
+        value={Math.round(progress)} 
+        text={expectedTime} 
+        strokeWidth={6} 
+        className={modules["circular-progress-bar"]}
+        styles={buildStyles({
+          textSize: '18px',
+          pathColor: `var(--theme-dawn-first-color)`,
+          textColor: 'var(--theme-neutral-fourth-color)',
+          trailColor: 'var(--theme-neutral-fourth-color)'
+        })}
+      />
     </div>
   )
 };
