@@ -49,26 +49,24 @@ const SunriseSunset: React.FC = () => {
       <div>
         <div className={modules["sunrise-container"]}>
           <h2>Time to sunrise</h2>
-          {!expectedNewDayTimeToSunrise && (
-            <>
-              <span>{expectedTimeToSunrise}</span>
-              <RemainingTimeBar timeRemainingInSeconds={sunrise - currentTime} expectedTime={expectedTimeToSunrise}/>
-            </>
-          )}
-          {expectedNewDayTimeToSunrise && totalOfSecondsToSunrise && (
-            <>
-              {/* <span>{expectedNewDayTimeToSunrise}</span> */}
-              <RemainingTimeBar timeRemainingInSeconds={totalOfSecondsToSunrise} expectedTime={expectedNewDayTimeToSunrise}/>
-            </>
-          )}
-          {!expectedTimeToSunrise && expectedTimeToSunset && (
-            <span>-- --</span>
-          )}
+          <>
+            {expectedTimeToSunrise && (
+                <RemainingTimeBar timeRemainingInSeconds={sunrise - currentTime} expectedTime={expectedTimeToSunrise}/>
+            )}
+            {expectedNewDayTimeToSunrise && totalOfSecondsToSunrise && (
+                <RemainingTimeBar timeRemainingInSeconds={totalOfSecondsToSunrise} expectedTime={expectedNewDayTimeToSunrise}/>
+            )}
+            {!expectedTimeToSunrise && expectedTimeToSunset && (
+              <RemainingTimeBar timeRemainingInSeconds={0} expectedTime={'-- --'}/>
+            )}
+          </>
         </div>
         <div className={modules["sunset-container"]}>
           <h2>Time to sunset</h2>
-          <span>{expectedTimeToSunset ? expectedTimeToSunset : '-- --'}</span>
-          {expectedTimeToSunset && <RemainingTimeBar timeRemainingInSeconds={sunset} expectedTime={expectedTimeToSunset}/>}
+          {expectedTimeToSunset 
+            ? <RemainingTimeBar timeRemainingInSeconds={sunset} expectedTime={expectedTimeToSunset}/> 
+            : <RemainingTimeBar timeRemainingInSeconds={0} expectedTime={'-- --'}/> 
+          }
         </div>
       </div>
     </div>

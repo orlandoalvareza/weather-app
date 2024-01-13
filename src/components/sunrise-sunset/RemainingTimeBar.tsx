@@ -25,7 +25,7 @@ const RemainingTimeBar: React.FC<RemainingTimeBarProps> = ({ timeRemainingInSeco
   }, [timeRemainingInSeconds]);
 
   return (
-    <div style={{ width: 100, height: 110 }}>
+    <div style={{ width: 100, height: 100 }}>
       <CircularProgressbar value={Math.round(progress)} text={expectedTime} />
     </div>
   )

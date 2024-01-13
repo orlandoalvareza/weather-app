@@ -8,12 +8,26 @@
 
 .sunrise-sunset-container > h2 {
   font-weight: 500;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+}
+
+.sunrise-container,
+.sunset-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.sunset-container {
+  flex-direction: row-reverse;
+  margin-top: 15px;
 }
 
 .sunrise-container > h2,
 .sunset-container > h2 {
   color: var(--theme-morning-fifth-color);
+  width: 90px;
+  text-align: center;
 }
 
 .dawn-theme {
