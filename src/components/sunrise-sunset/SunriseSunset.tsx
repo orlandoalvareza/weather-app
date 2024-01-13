@@ -3,6 +3,7 @@ import { useContext } from 'react';
 import useCurrentWeather from '../../hooks/useCurrentWeather';
 import useTheme from '../../hooks/useTheme';
 import LocationContext from '../../context/location-context';
+import Skeleton from '@mui/material/Skeleton';
 import RemainingTimeBar from './RemainingTimeBar';
 import { getCurrentTimeInSeconds, getExpectedTime } from '../../util/time';
 import { LocationContextType } from '../../interfaces/location-context';
@@ -49,24 +50,36 @@ const SunriseSunset: React.FC = () => {
       <div>
         <div className={modules["sunrise-container"]}>
           <h2>Time to sunrise</h2>
-          <>
-            {expectedTimeToSunrise && (
+          {isLoading && (
+            <Skeleton variant="circular" width={100} height={100}/>
+          )}
+          {!isLoading && (
+            <>
+              {expectedTimeToSunrise && (
                 <RemainingTimeBar timeRemainingInSeconds={sunrise - currentTime} expectedTime={expectedTimeToSunrise}/>
-            )}
-            {expectedNewDayTimeToSunrise && totalOfSecondsToSunrise && (
+              )}
+              {expectedNewDayTimeToSunrise && totalOfSecondsToSunrise && (
                 <RemainingTimeBar timeRemainingInSeconds={totalOfSecondsToSunrise} expectedTime={expectedNewDayTimeToSunrise}/>
-            )}
-            {!expectedTimeToSunrise && expectedTimeToSunset && (
-              <RemainingTimeBar timeRemainingInSeconds={0} expectedTime={'-- --'}/>
-            )}
-          </>
+              )}
+              {!expectedTimeToSunrise && expectedTimeToSunset && (
+                <RemainingTimeBar timeRemainingInSeconds={0} expectedTime={'-- --'}/>
+              )}
+            </>
+          )}
         </div>
         <div className={modules["sunset-container"]}>
           <h2>Time to sunset</h2>
-          {expectedTimeToSunset 
-            ? <RemainingTimeBar timeRemainingInSeconds={sunset} expectedTime={expectedTimeToSunset}/> 
-            : <RemainingTimeBar timeRemainingInSeconds={0} expectedTime={'-- --'}/> 
-          }
+          {isLoading && (
+            <Skeleton variant="circular" width={100} height={100}/>
+          )}
+          {!isLoading && (
+            <>
+              {expectedTimeToSunset 
+                ? <RemainingTimeBar timeRemainingInSeconds={sunset} expectedTime={expectedTimeToSunset}/> 
+                : <RemainingTimeBar timeRemainingInSeconds={0} expectedTime={'-- --'}/> 
+              }
+            </>
+          )}
         </div>
       </div>
     </div>

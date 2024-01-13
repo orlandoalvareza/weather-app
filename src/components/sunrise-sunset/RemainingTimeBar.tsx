@@ -29,7 +29,6 @@ const RemainingTimeBar: React.FC<RemainingTimeBarProps> = ({ timeRemainingInSeco
         value={Math.round(progress)} 
         text={expectedTime} 
         strokeWidth={6} 
-        className={modules["circular-progress-bar"]}
         styles={buildStyles({
           textSize: '18px',
           pathColor: `var(--theme-dawn-first-color)`,
