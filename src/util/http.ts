@@ -7,11 +7,12 @@ async function fetchData(url: string) {
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
-   
+    
     const data = await response.json();
     return data;
   } catch (error: any) {
-    console.error('Error fetching data:', error.message);
+    // throw new Error(`Error fetching weather data: ${error.message}`);
+    console.log(error);
   }
 }
 

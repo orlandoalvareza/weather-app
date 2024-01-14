@@ -9,14 +9,21 @@ const useCurrentWeather = () => {
   const { location } = useContext<LocationContextType>(LocationContext);
   const [currentWeatherData, setCurrentWeatherData] = useState<WeatherData>({});  
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isError, setIsError] = useState<boolean>(false);
 
   useEffect(() => {
     async function getCurrentWeather() {
-      setIsLoading(true);
-      const data = await fetchCurrentWeather(location);
+      try {
+        setIsLoading(true);
+        setIsError(false);
 
-      setCurrentWeatherData(data);
-      setIsLoading(false);
+        const data = await fetchCurrentWeather(location);
+        
+        setCurrentWeatherData(data);
+        setIsLoading(false);
+      } catch (error) {
+        setIsError(true);
+      }
     }
 
     getCurrentWeather();
@@ -24,7 +31,8 @@ const useCurrentWeather = () => {
 
   return {
     weatherData: currentWeatherData,
-    isLoading: isLoading
+    isLoading: isLoading,
+    isError: isError
   };
 }
 
