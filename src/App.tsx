@@ -10,12 +10,22 @@ import Measurements from "./components/measurements/Measurements";
 import SunriseSunset from "./components/sunrise-sunset/SunriseSunset";
 
 import './App.css';
+import { useState } from "react";
 
 function App() {
   const theme = useTheme();
   useCurrentLocation();
+  const [isFirstSection, SetIsFirstSection] = useState<boolean>(true);
 
   const appClass = `App ${theme}`;
+
+  const displayFirstSectionHandler = () => {
+    SetIsFirstSection(true);
+  }
+
+  const displaySecondSectionHandler = () => {
+    SetIsFirstSection(false);
+  }
   
   return (
     <div className={appClass}>
@@ -24,10 +34,20 @@ function App() {
       <CurrentWeather/>
       <HourlyForecast/>
       <section className="App__section">
-        <DailyForecast/>
-        <Measurements/>
-        <SunriseSunset/>
-        <Suggestions/>
+        <button onClick={displayFirstSectionHandler}>Back</button>
+        {isFirstSection && (
+          <>
+            <DailyForecast/>
+            <Measurements/>
+          </>
+        )}
+        {!isFirstSection && (
+          <>
+            <SunriseSunset/>
+            <Suggestions/>
+          </>
+        )}        
+        <button onClick={displaySecondSectionHandler}>Next</button>
       </section>
     </div>
   );

@@ -1,6 +1,5 @@
 .App, 
-.App__section,
-.App__sub-section {
+.App__section {
   display: flex;
   justify-content: space-between;
 }
@@ -27,4 +26,28 @@
 
 .evening-theme {
   background: linear-gradient(120deg, var(--theme-evening-first-color), var(--theme-evening-second-color));
+}
+
+/* @media screen and (max-width: 480px) {
+  
+} */
+
+/* @media screen and (min-width: 481px) and (max-width: 767px) {
+  
+} */
+
+/* @media screen and (min-width: 768px) and (max-width: 1023px) {
+  
+} */
+
+@media screen and (min-width: 1024px) and (max-width: 1279px) {
+  .dawn-theme {
+    background: silver
+  }
+
+  .App__section {
+    /* height: 36vh; */
+    /* flex-wrap: wrap; */
+    border: 1px solid red;
+  }
 }

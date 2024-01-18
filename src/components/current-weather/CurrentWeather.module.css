@@ -134,3 +134,13 @@
 .evening-theme .temp-container span {
   color: var(--theme-neutral-fourth-color);
 }
+
+@media screen and (min-width: 1024px) and (max-width: 1279px) {
+  .current-weather-container {
+    height: 110px;
+  }
+  
+  .weather-container > img {
+    width: 60px;
+  }
+}

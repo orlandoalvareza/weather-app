@@ -109,3 +109,9 @@
 .evening-theme span {
   color: var(--theme-neutral-fourth-color);
 }
+
+@media screen and (min-width: 1024px) and (max-width: 1279px) {
+  .daily-forecast {
+    width: 34%;
+  }
+}
