@@ -92,6 +92,7 @@
 
 @media screen and (min-width: 1024px) and (max-width: 1279px) {
   .measurements-container {
-    width: 18%;
+    width: 23%;
+    padding-left: 35px;
   }
 }

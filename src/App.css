@@ -46,8 +46,24 @@
   }
 
   .App__section {
-    /* height: 36vh; */
-    /* flex-wrap: wrap; */
-    border: 1px solid red;
+    position: relative;
+  }
+
+  .App__back-button,
+  .App__next-button {
+    position: absolute;
+    top: 42%;
+    padding: 8px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .App__next-button {
+    right: 0;
+  }
+
+  .App__icon-button {
+    font-size: 18px;
   }
 }

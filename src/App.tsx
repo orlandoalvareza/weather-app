@@ -1,3 +1,6 @@
+import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import useTheme from "./hooks/useTheme";
 import useCurrentLocation from "./hooks/useCurrentLocation";
 import Header from "./components/header/Header";
@@ -8,9 +11,9 @@ import HourlyForecast from "./components/forecast/HourlyForecast";
 import Suggestions from "./components/suggestions/Suggestions";
 import Measurements from "./components/measurements/Measurements";
 import SunriseSunset from "./components/sunrise-sunset/SunriseSunset";
+import { faCaretLeft, faCaretRight } from '@fortawesome/free-solid-svg-icons';
 
 import './App.css';
-import { useState } from "react";
 
 function App() {
   const theme = useTheme();
@@ -34,20 +37,36 @@ function App() {
       <CurrentWeather/>
       <HourlyForecast/>
       <section className="App__section">
-        <button onClick={displayFirstSectionHandler}>Back</button>
+        {!isFirstSection && (
+          <button 
+            onClick={displayFirstSectionHandler}
+            className="App__back-button"
+          >
+            <FontAwesomeIcon className="App__icon-button" icon={faCaretLeft}/>
+          </button>
+        )}
         {isFirstSection && (
           <>
             <DailyForecast/>
             <Measurements/>
+            <SunriseSunset/>
           </>
         )}
         {!isFirstSection && (
           <>
+            <Measurements/>
             <SunriseSunset/>
             <Suggestions/>
           </>
         )}        
-        <button onClick={displaySecondSectionHandler}>Next</button>
+        {isFirstSection && (
+          <button 
+            onClick={displaySecondSectionHandler}
+            className="App__next-button"
+          >
+            <FontAwesomeIcon className="App__icon-button" icon={faCaretRight}/>
+          </button>
+        )}
       </section>
     </div>
   );
