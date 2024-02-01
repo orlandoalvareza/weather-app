@@ -12,6 +12,28 @@
   padding: 15px 20px;
 }
 
+.App__section {
+  position: relative;
+}
+
+.App__back-button,
+.App__next-button {
+  position: absolute;
+  top: 42%;
+  padding: 8px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.App__next-button {
+  right: 0;
+}
+
+.App__icon-button {
+  font-size: 18px;
+}
+
 .dawn-theme {
   background: linear-gradient(120deg, var(--theme-dawn-first-color), var(--theme-dawn-second-color));
 }
@@ -36,34 +58,13 @@
   
 } */
 
-/* @media screen and (min-width: 768px) and (max-width: 1023px) {
-  
-} */
-
-@media screen and (min-width: 1024px) and (max-width: 1279px) {
+@media screen and (min-width: 768px) and (max-width: 1023px) {
   .dawn-theme {
     background: silver
   }
 
-  .App__section {
-    position: relative;
-  }
-
   .App__back-button,
   .App__next-button {
-    position: absolute;
-    top: 42%;
-    padding: 8px;
-    border-radius: 8px;
-    border: none;
-    cursor: pointer;
-  }
-
-  .App__next-button {
-    right: 0;
-  }
-
-  .App__icon-button {
-    font-size: 18px;
+    padding: 6px;
   }
 }

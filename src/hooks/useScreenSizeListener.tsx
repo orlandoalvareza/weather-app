@@ -1,11 +1,15 @@
 import { useEffect, useState } from 'react';
 
-const useScreenSizeListener = () => {
-  const [isScreenSizeToLaptop, setIsScreenSizeToLaptop] = useState<boolean>(false);
+import { ScreenSize } from '../interfaces/screen-size';
+
+const useScreenSizeListener = (screenSize: ScreenSize) => {
+  const [isScreenSizeInRange, setIsScreenSizeInRange] = useState<boolean>(false);
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia('(min-width: 1024px) and (max-width: 1279px)');
-    const handleScreenSizeChange = (mq: any) => setIsScreenSizeToLaptop(mq.matches);
+    const { minWidth, maxWidth } = screenSize;
+    const mediaQuery = window.matchMedia(`(min-width: ${minWidth}px) and (max-width: ${maxWidth}px)`);
+
+    const handleScreenSizeChange = (mq: any) => setIsScreenSizeInRange(mq.matches);
 
     handleScreenSizeChange(mediaQuery);
 
@@ -16,9 +20,9 @@ const useScreenSizeListener = () => {
     return () => {
       mediaQuery.removeEventListener('change', listener);
     };
-  }, []);
+  }, [screenSize]);
 
-  return isScreenSizeToLaptop;
+  return isScreenSizeInRange;
 };
 
 export default useScreenSizeListener;

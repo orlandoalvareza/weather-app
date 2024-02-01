@@ -9,7 +9,8 @@ import Suggestions from "../suggestions/Suggestions";
 import { faCaretLeft, faCaretRight } from "@fortawesome/free-solid-svg-icons";
 
 const AditionalInfoSection = () => {
-  const isScreenSizeToLaptop = useScreenSizeListener();
+  const isTablet = useScreenSizeListener({ minWidth: 768, maxWidth: 1023 });
+  const isLaptop = useScreenSizeListener({ minWidth: 1024, maxWidth: 1279 });
   const [isFirstSection, SetIsFirstSection] = useState<boolean>(true);
 
   const displayFirstSectionHandler = () => {
@@ -19,6 +20,39 @@ const AditionalInfoSection = () => {
   const displaySecondSectionHandler = () => {
     SetIsFirstSection(false);
   }
+
+  const screenSizetoTabletContent = (
+    <>
+      {!isFirstSection && (
+        <button 
+          onClick={displayFirstSectionHandler}
+          className="App__back-button"
+        >
+          <FontAwesomeIcon className="App__icon-button" icon={faCaretLeft}/>
+        </button>
+      )}
+      {isFirstSection && (
+        <>
+          <DailyForecast/>
+          <Measurements/>
+        </>
+      )}
+      {!isFirstSection && (
+        <>
+          <SunriseSunset/>
+          <Suggestions/>
+        </>
+      )}
+      {isFirstSection && (
+        <button 
+          onClick={displaySecondSectionHandler}
+          className="App__next-button"
+        >
+          <FontAwesomeIcon className="App__icon-button" icon={faCaretRight}/>
+        </button>
+      )}
+    </>
+  );
 
   const screenSizeToLaptopContent = (
     <>
@@ -66,8 +100,9 @@ const AditionalInfoSection = () => {
 
   return (
     <section className="App__section">
-      {isScreenSizeToLaptop && screenSizeToLaptopContent}
-      {!isScreenSizeToLaptop && screenSizeToDesktopContent}
+      {isTablet && screenSizetoTabletContent}
+      {isLaptop && screenSizeToLaptopContent}
+      {/* {!isLaptop && screenSizeToDesktopContent} */}
     </section>
   )
 }

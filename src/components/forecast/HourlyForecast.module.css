@@ -83,3 +83,14 @@
 .evening-theme p {
   color: var(--theme-neutral-third-color);
 }
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .forecast-list {
+    overflow-x: auto;
+    gap: 12px;
+  }
+
+  .forecast {
+    flex: 0 0 18%;
+  }
+}

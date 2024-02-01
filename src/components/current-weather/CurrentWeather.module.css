@@ -135,6 +135,16 @@
   color: var(--theme-neutral-fourth-color);
 }
 
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .current-weather-container {
+    height: 110px;
+  }
+  
+  .weather-container > img {
+    width: 50px;
+  }
+}
+
 @media screen and (min-width: 1024px) and (max-width: 1279px) {
   .current-weather-container {
     height: 110px;
