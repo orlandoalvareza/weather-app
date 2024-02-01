@@ -1,4 +1,4 @@
 export interface ScreenSize {
-  minWidth: number;
-  maxWidth: number;
+  minWidth: number | undefined;
+  maxWidth: number | undefined;
 }

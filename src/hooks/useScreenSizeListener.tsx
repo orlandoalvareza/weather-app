@@ -7,7 +7,7 @@ const useScreenSizeListener = (screenSize: ScreenSize) => {
 
   useEffect(() => {
     const { minWidth, maxWidth } = screenSize;
-    const mediaQuery = window.matchMedia(`(min-width: ${minWidth}px) and (max-width: ${maxWidth}px)`);
+    const mediaQuery = window.matchMedia(`(min-width: ${minWidth}px)${maxWidth ? ` and (max-width: ${maxWidth}px)` : ''}`);
 
     const handleScreenSizeChange = (mq: any) => setIsScreenSizeInRange(mq.matches);
 
