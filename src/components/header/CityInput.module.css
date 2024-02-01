@@ -91,3 +91,10 @@
 .evening-theme .search-icon {
  color: var(--theme-evening-second-color);
 }
+
+@media screen and (min-width: 481px) and (max-width: 767px) {
+  .city-input {
+    width: 70%;
+    margin-right: 5px;
+  }
+}

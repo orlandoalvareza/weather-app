@@ -8,7 +8,10 @@ import SunriseSunset from "../sunrise-sunset/SunriseSunset";
 import Suggestions from "../suggestions/Suggestions";
 import { faCaretLeft, faCaretRight } from "@fortawesome/free-solid-svg-icons";
 
+import modules from './AditionalInfoSection.module.css';
+
 const AditionalInfoSection = () => {
+  const isMiniTablet = useScreenSizeListener({ minWidth: 481, maxWidth: 767 });
   const isTablet = useScreenSizeListener({ minWidth: 768, maxWidth: 1023 });
   const isLaptop = useScreenSizeListener({ minWidth: 1024, maxWidth: 1279 });
   const [isFirstSection, SetIsFirstSection] = useState<boolean>(true);
@@ -20,6 +23,17 @@ const AditionalInfoSection = () => {
   const displaySecondSectionHandler = () => {
     SetIsFirstSection(false);
   }
+
+  const screenSizetoMiniTabletContent = (
+    <div className={modules["adiotional-info-container"]}>
+      <DailyForecast/>
+      <div className={modules["adiotional-info-container__section"]}>
+        <Measurements/>
+        <SunriseSunset/>
+      </div>
+      <Suggestions/>
+    </div>
+  )
 
   const screenSizetoTabletContent = (
     <>
@@ -100,6 +114,7 @@ const AditionalInfoSection = () => {
 
   return (
     <section className="App__section">
+      {isMiniTablet && screenSizetoMiniTabletContent}
       {isTablet && screenSizetoTabletContent}
       {isLaptop && screenSizeToLaptopContent}
       {/* {!isLaptop && screenSizeToDesktopContent} */}

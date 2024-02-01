@@ -1,0 +1,15 @@
+.adiotional-info-container,
+.adiotional-info-container__section {
+  display: flex;
+}
+
+.adiotional-info-container {
+  flex-direction: column;
+  gap: 30px;
+  width: 100%;
+  margin-top: 40px;
+}
+
+.adiotional-info-container__section {
+  justify-content: space-between;
+}

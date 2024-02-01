@@ -135,6 +135,40 @@
   color: var(--theme-neutral-fourth-color);
 }
 
+@media screen and (min-width: 481px) and (max-width: 767px) {
+  .current-weather-container {
+    justify-content: space-around;
+    flex-wrap: wrap;
+    height: 220px;
+  }
+
+  .location-container,
+  .weather-container {
+    width: 45%;
+  }
+
+  .location-container {
+    gap: 8px;
+  }
+
+  .location-container span {
+    font-size: 48px;
+  }
+
+  .weather-container {
+    padding-left: 70px;
+  }
+
+  .weather-container > img {
+    width: 65px;
+    margin-bottom: 0;
+  }
+
+  .temp-container {
+    gap: 25px;
+  }
+}
+
 @media screen and (min-width: 768px) and (max-width: 1023px) {
   .current-weather-container {
     height: 110px;

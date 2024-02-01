@@ -50,6 +50,12 @@
   color: var(--theme-neutral-first-color);
 }
 
+@media screen and (min-width: 481px) and (max-width: 767px) {
+  .suggestions-container {
+    width: 100%;
+  }
+}
+
 @media screen and (min-width: 768px) and (max-width: 1023px) {
   .suggestions-container {
     width: 62%;
