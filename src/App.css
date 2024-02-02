@@ -52,7 +52,7 @@
 
 @media screen and (max-width: 480px) {
   .App {
-    height: 265vh;
+    height: 260vh;
   }
 
   .App__back-button,

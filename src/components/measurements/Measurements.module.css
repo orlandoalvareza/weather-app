@@ -94,6 +94,12 @@
   .measurements-container {
     width: 100%;
   }
+
+  .measurements {
+    flex-wrap: wrap;
+    height: 130px;
+    margin-top: 35px;
+  }
 }
 
 @media screen and (min-width: 481px) and (max-width: 767px) {
