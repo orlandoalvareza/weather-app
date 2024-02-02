@@ -135,6 +135,29 @@
   color: var(--theme-neutral-fourth-color);
 }
 
+@media screen and (max-width: 480px) {
+  .current-weather-container {
+    justify-content: space-around;
+    flex-wrap: wrap;
+    height: 240px;
+    margin-bottom: 40px;
+  }
+
+  .weather-container p {
+    display: none;
+  }
+
+  .weather-container > img {
+    width: 75px;
+  }
+
+  .temp-container {
+    justify-content: center;
+    width: 100%;
+    gap: 45px;
+  }
+}
+
 @media screen and (min-width: 481px) and (max-width: 767px) {
   .current-weather-container {
     justify-content: space-around;

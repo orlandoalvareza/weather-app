@@ -90,6 +90,12 @@
   color: var(--theme-neutral-fourth-color);
 }
 
+@media screen and (max-width: 480px) {
+  .measurements-container {
+    width: 100%;
+  }
+}
+
 @media screen and (min-width: 481px) and (max-width: 767px) {
   .measurements-container {
     width: 40%;

@@ -1,33 +1,24 @@
 import useScreenSizeListener from "../../hooks/useScreenSizeListener";
+import PhoneAditionalInfo from "./PhoneAditionalInfo";
 import MiniTabletAditionalInfo from "./MiniTabletAditionalInfo";
 import TabletAditionalInfo from "./TabletAditionalInfo";
 import LaptopAditionalInfo from "./LaptopAditionalInfo";
-import DailyForecast from "../forecast/DailyForecast";
-import Measurements from "../measurements/Measurements";
-import SunriseSunset from "../sunrise-sunset/SunriseSunset";
-import Suggestions from "../suggestions/Suggestions";
+import DesktopAditionalInfo from "./DesktopAditionalInfo";
 
 const AditionalInfoSection = () => {
+  const isPhone = useScreenSizeListener({ minWidth: 0, maxWidth: 480 });
   const isMiniTablet = useScreenSizeListener({ minWidth: 481, maxWidth: 767 });
   const isTablet = useScreenSizeListener({ minWidth: 768, maxWidth: 1023 });
   const isLaptop = useScreenSizeListener({ minWidth: 1024, maxWidth: 1279 });
   const isDesktop = useScreenSizeListener({ minWidth: 1280, maxWidth: undefined });
 
-  const screenSizeToDesktopContent = (
-    <>
-      <DailyForecast/>
-      <Measurements/>
-      <SunriseSunset/>
-      <Suggestions/>
-    </>
-  );
-
   return (
     <section className="App__section">
+      {isPhone && <PhoneAditionalInfo/>}
       {isMiniTablet && <MiniTabletAditionalInfo/>}
       {isTablet && <TabletAditionalInfo/>}
       {isLaptop && <LaptopAditionalInfo/>}
-      {isDesktop && screenSizeToDesktopContent}
+      {isDesktop && <DesktopAditionalInfo/>}
     </section>
   )
 }

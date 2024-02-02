@@ -80,3 +80,18 @@
 .evening-theme .units-indicator button {
   border: 1px solid var(--theme-evening-second-color);
 }
+
+@media screen and (max-width: 480px) {
+  .units-controller {
+    height: 28px;
+  }
+
+  .units-controller span {
+    font-size: 22px;
+    margin-left: 5px;
+  }
+  
+  .units-indicator {
+    width: 60px;
+  }
+}

@@ -84,6 +84,17 @@
   color: var(--theme-neutral-third-color);
 }
 
+@media screen and (max-width: 480px) {
+  .forecast-list {
+    overflow-x: auto;
+    gap: 12px;
+  }
+
+  .forecast {
+    flex: 0 0 35%;
+  }
+}
+
 @media screen and (min-width: 481px) and (max-width: 767px) {
   .forecast-list {
     overflow-x: auto;
