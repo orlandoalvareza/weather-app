@@ -10,7 +10,6 @@ import { LocationContextType } from '../../interfaces/location-context';
 
 import modules from './SunriseSunset.module.css';
 
-
 const SunriseSunset: React.FC = () => {
   const { weatherData, isLoading } = useCurrentWeather();
   const { timezone } = useContext<LocationContextType>(LocationContext);
@@ -56,13 +55,22 @@ const SunriseSunset: React.FC = () => {
           {!isLoading && (
             <>
               {expectedTimeToSunrise && (
-                <RemainingTimeBar timeRemainingInSeconds={sunrise - currentTime} expectedTime={expectedTimeToSunrise}/>
+                <RemainingTimeBar 
+                  timeRemainingInSeconds={sunrise - currentTime} 
+                  expectedTime={expectedTimeToSunrise}
+                />
               )}
               {expectedNewDayTimeToSunrise && totalOfSecondsToSunrise && (
-                <RemainingTimeBar timeRemainingInSeconds={totalOfSecondsToSunrise} expectedTime={expectedNewDayTimeToSunrise}/>
+                <RemainingTimeBar 
+                  timeRemainingInSeconds={totalOfSecondsToSunrise} 
+                  expectedTime={expectedNewDayTimeToSunrise}
+                />
               )}
               {!expectedTimeToSunrise && expectedTimeToSunset && (
-                <RemainingTimeBar timeRemainingInSeconds={0} expectedTime={'-- --'}/>
+                <RemainingTimeBar 
+                  timeRemainingInSeconds={0} 
+                  expectedTime={'-- --'}
+                />
               )}
             </>
           )}
