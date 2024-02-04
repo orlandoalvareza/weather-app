@@ -11,7 +11,7 @@ import { convertAllTemperatures } from "../../util/temperature";
 import modules from './CurrentWeather.module.css';
 
 const CurrentWeather: React.FC = () => {
-  const { weatherData, isLoading, isError } = useCurrentWeather();
+  const { weatherData, isLoading } = useCurrentWeather();
   const { isCelsius } = useContext<TempUnitsContextType>(TemperatureUnitsContext);
   const theme = useTheme();
 
@@ -36,54 +36,47 @@ const CurrentWeather: React.FC = () => {
 
   return (
     <div className={`${modules["current-weather-container"]} ${modules[theme]}`}>
-      {isError && (
-        <p>Error</p>
+      {isLoading && (
+        <div className={modules["location-container"]}>
+          <Skeleton variant="rounded" width={200} height={40}/>
+          <Skeleton variant="rounded" width={200} height={20}/>
+        </div>
       )}
-      {!isError && (
-        <>
-          {isLoading && (
-            <div className={modules["location-container"]}>
-              <Skeleton variant="rounded" width={200} height={40}/>
-              <Skeleton variant="rounded" width={200} height={20}/>
-            </div>
-          )}
-          {!isLoading && (
-            <div className={modules["location-container"]}>
-              <h2>
-                <span>{cityName}</span>, {country}
-              </h2>
-              <h3>{date}</h3>
-            </div>
-          )}
-          <div className={modules["weather-container"]}>
-            {isLoading 
-              ? <Skeleton variant="rounded" width={70} height={70}/> 
-              : <img src={iconSrc} alt="weather-icon"/>
-            }
-            {isLoading 
-              ? <Skeleton variant="text" sx={{ fontSize: '1rem', width: '110px' }}/> 
-              : <p>{weatherDescription}</p>
-            }
-          </div>
-          <div className={modules["temp-container"]}>
-            {isLoading && <Skeleton variant="rounded" width={80} height={70}/>}
-            {!isLoading && (
-              <h1 className={modules["temp-container__temp"]}>
-                {temperaturesData.temperature}
-                <span>{isCelsius ? "°C" : "°F"}</span>
-              </h1>
-            )}
-            <div className={modules["temp-container__aside"]}>
-              {isLoading && <Skeleton variant="text" sx={{ fontSize: '20px', width: '110px' }}/>}
-              {!isLoading && <p>Feels like {temperaturesData.feelsLikeWeather} °C</p>}
-              <section className={modules["temp-container__aside-section"]}>
-                {isLoading ? tempSpanSkeleton : <span>H: {temperaturesData.maxTemp} °</span>}
-                {isLoading ? tempSpanSkeleton : <span>L: {temperaturesData.minTemp} °</span>}
-              </section>
-            </div>
-          </div>
-        </>
+      {!isLoading && (
+        <div className={modules["location-container"]}>
+          <h2>
+            <span>{cityName}</span>, {country}
+          </h2>
+          <h3>{date}</h3>
+        </div>
       )}
+      <div className={modules["weather-container"]}>
+        {isLoading 
+          ? <Skeleton variant="rounded" width={70} height={70}/> 
+          : <img src={iconSrc} alt="weather-icon"/>
+        }
+        {isLoading 
+          ? <Skeleton variant="text" sx={{ fontSize: '1rem', width: '110px' }}/> 
+          : <p>{weatherDescription}</p>
+        }
+      </div>
+      <div className={modules["temp-container"]}>
+        {isLoading && <Skeleton variant="rounded" width={80} height={70}/>}
+        {!isLoading && (
+          <h1 className={modules["temp-container__temp"]}>
+            {temperaturesData.temperature}
+            <span>{isCelsius ? "°C" : "°F"}</span>
+          </h1>
+        )}
+        <div className={modules["temp-container__aside"]}>
+          {isLoading && <Skeleton variant="text" sx={{ fontSize: '20px', width: '110px' }}/>}
+          {!isLoading && <p>Feels like {temperaturesData.feelsLikeWeather} °C</p>}
+          <section className={modules["temp-container__aside-section"]}>
+            {isLoading ? tempSpanSkeleton : <span>H: {temperaturesData.maxTemp} °</span>}
+            {isLoading ? tempSpanSkeleton : <span>L: {temperaturesData.minTemp} °</span>}
+          </section>
+        </div>
+      </div>
     </div>
   )
 }

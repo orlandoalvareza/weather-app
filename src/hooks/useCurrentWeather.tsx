@@ -17,9 +17,14 @@ const useCurrentWeather = () => {
         setIsLoading(true);
         setIsError(false);
 
-        const data = await fetchCurrentWeather(location);
-        
-        setCurrentWeatherData(data);
+        const { data, error } = await fetchCurrentWeather(location);
+
+        if (error) {
+          setIsError(true);
+        } else {
+          setCurrentWeatherData(data);
+        }
+
         setIsLoading(false);
       } catch (error) {
         setIsError(true);
@@ -31,8 +36,8 @@ const useCurrentWeather = () => {
 
   return {
     weatherData: currentWeatherData,
-    isLoading: isLoading,
-    isError: isError
+    isLoading,
+    isError
   };
 }
 

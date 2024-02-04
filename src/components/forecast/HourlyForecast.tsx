@@ -25,7 +25,11 @@ const HourlyForecast: React.FC = () => {
       setIsLoading(true);
       const forecastData = await fetchForecastWeather(location);
 
-      setHourlyForecastData(forecastData.list.slice(0,8));
+      if (forecastData.error) {
+        return;
+      }
+      
+      setHourlyForecastData(forecastData.data.list.slice(0,8));
       setIsLoading(false);
     }
     getForecastWeather();

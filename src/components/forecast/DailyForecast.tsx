@@ -25,7 +25,11 @@ const DailyForecast: React.FC = () => {
       setIsLoading(true);
       const forecastData = await fetchForecastWeather(location);
 
-      setDailyForecastData(forecastData);
+      if (forecastData.error) {
+        return;
+      }
+
+      setDailyForecastData(forecastData.data);
       setIsLoading(false);
     }
     getForecastWeather();

@@ -5,14 +5,14 @@ async function fetchData(url: string) {
     const response = await fetch(url);
     
     if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
+      const errorMessage = `HTTP error! Status: ${response.status}`;
+      return { data: null, error: new Error(errorMessage) };
     }
     
     const data = await response.json();
-    return data;
+    return { data, error: null };
   } catch (error: any) {
-    // throw new Error(`Error fetching weather data: ${error.message}`);
-    console.log(error);
+    return { data: null, error };
   }
 }
 

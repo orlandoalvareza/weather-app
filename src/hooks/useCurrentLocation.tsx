@@ -12,7 +12,7 @@ const useCurrentLocation = () => {
       const longitude = position.coords.longitude;
       
       const location = await getLocation(latitude, longitude);
-      onChangeInitialLocation(location.name, location.timezone);
+      onChangeInitialLocation(location.data.name, location.data.timezone);
     }
 
     const handleError = (error: any) => {
