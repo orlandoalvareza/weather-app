@@ -1,0 +1,94 @@
+.error-container,
+.error-box {
+  display: flex;
+  align-items: center;
+}
+
+.error-container {
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.error-box {
+  flex-direction: column;
+  background: var(--theme-neutral-second-color);
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.error-information {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.error-information h1 {
+  font-size: 3rem;
+  color: var(--theme-morning-fifth-color);
+  margin-bottom: 5px;
+}
+
+.error-information h3 {
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: var(--theme-morning-fifth-color);
+  margin-bottom: 25px;
+}
+
+.error-information p {
+  font-size: 20px;
+  color: var(--theme-morning-fifth-color);
+}
+
+/* .dawn-theme .error-box {
+  background: var(--theme-dawn-third-color);
+}
+
+.dawn-theme .error-information h1,
+.dawn-theme .error-information h3 {
+  color: var(--theme-neutral-fourth-color);
+}
+
+.dawn-theme .error-information p {
+  color: var(--theme-neutral-third-color);
+}
+
+.dayling-theme {
+  background: var(--theme-dayling-third-color);
+}
+
+.dayling-theme .error-information h1,
+.dayling-theme .error-information h3 {
+  color: var(--theme-neutral-first-color);
+}
+
+.dayling-theme .error-information p {
+  color: var(--theme-neutral-fourth-color);
+}
+
+.sunset-theme {
+  background: var(--theme-sunset-third-color);
+}
+
+.sunset-theme .error-information h1,
+.sunset-theme .error-information h3 {
+  color: var(--theme-neutral-first-color);
+}
+
+.sunset-theme .error-information p {
+  color: var(--theme-neutral-fourth-color);
+}
+
+.evening-theme {
+  background: var(--theme-evening-third-color);
+}
+
+.evening-theme .error-information h1,
+.evening-theme .error-information h3 {
+  color: var(--theme-neutral-first-color);
+}
+
+.evening-theme .error-information p {
+  color: var(--theme-neutral-fourth-color);
+} */
