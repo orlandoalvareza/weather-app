@@ -7,6 +7,7 @@ import LocationsHistory from "./components/history/LocationsHistory";
 import CurrentWeather from "./components/current-weather/CurrentWeather";
 import HourlyForecast from "./components/forecast/HourlyForecast";
 import AditionalInfoSection from "./components/adiotional-info/AditionalInfoSection";
+import Error from "./components/error/Error";
 
 import './App.css';
 
@@ -19,7 +20,6 @@ function App() {
   
   return (
     <div className={appClass}>
-      {isError && <h1>Error</h1>}
       {!isError && (
         <>
           <Header/>
@@ -29,6 +29,7 @@ function App() {
           <AditionalInfoSection/>
         </>
       )}
+      {isError && <Error/>}
     </div>
   );
 }
