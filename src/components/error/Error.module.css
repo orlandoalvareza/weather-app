@@ -80,3 +80,47 @@
 .evening-theme .error-information p {
   color: var(--theme-neutral-fourth-color);
 }
+
+@media screen and (max-width: 480px) {
+  .error-information h1 {
+    font-size: 2rem;
+  }
+  
+  .error-information h3 {
+    font-size: 1.2rem;
+  }
+  
+  .error-information p {
+    font-size: 16px;
+  }
+}
+  
+
+@media screen and (min-width: 481px) and (max-width: 767px) {
+  .error-information h1 {
+    font-size: 2.4rem;
+  }
+  
+  .error-information h3 {
+    font-size: 1.3rem;
+  }
+  
+  .error-information p {
+    font-size: 17px;
+  }
+}
+
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .error-information h1 {
+    font-size: 2.6rem;
+  }
+  
+  .error-information h3 {
+    font-size: 1.4rem;
+  }
+  
+  .error-information p {
+    font-size: 18px;
+  }
+}
