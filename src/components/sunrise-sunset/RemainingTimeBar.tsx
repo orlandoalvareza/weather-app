@@ -39,7 +39,7 @@ const RemainingTimeBar: React.FC<RemainingTimeBarProps> = ({ timeRemainingInSeco
     pathColor = 'var(--theme-dayling-first-color)';
     trailColor = 'var(--theme-dayling-fourth-color)';
   } else if (selectedTheme === 'sunset') {
-    pathColor = 'var(--theme-sunset-second-color)';
+    pathColor = 'var(--theme-sunset-fifth-color)';
     trailColor = 'var(--theme-sunset-third-color)';
   } else {
     pathColor = 'var(--theme-evening-fifth-color)';

@@ -9,7 +9,7 @@ const Header: React.FC = () => {
 
   return (
     <header className={`${modules.header} ${modules[theme]}`}>
-      <CityInput/>
+      <CityInput errorAlert={false}/>
       <UnitsController />
     </header>
   )

@@ -7,6 +7,7 @@ export interface LocationContextType {
   onChangeInitialLocation: (newLocation: string, newTimezone: number) => void;
   onChangeLocation: (newLocation: string) => void;
   onDeleteLocation: (id: string) => void;
+  onDeleteWrongLocation: () => void;
 }
 
 export interface LocationHistory {

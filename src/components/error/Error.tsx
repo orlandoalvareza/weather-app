@@ -14,7 +14,7 @@ const Error = () => {
           <h3>The city entered has not been found</h3>
           <p>Please try again or enter a new city</p>
         </div>
-        <CityInput/>
+        <CityInput errorAlert={true}/>
       </div>
     </div>
   )

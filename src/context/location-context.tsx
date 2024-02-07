@@ -18,7 +18,8 @@ const LocationContext = React.createContext<LocationContextType>({
   timezone: initialLocation.timezone,
   onChangeInitialLocation: () => {},
   onChangeLocation: () => {},
-  onDeleteLocation: () => {}
+  onDeleteLocation: () => {},
+  onDeleteWrongLocation: () => {}
 })
 
 export const LocationContextProvider: React.FC<LocationContextProviderProps> = (props) => {
@@ -73,13 +74,18 @@ export const LocationContextProvider: React.FC<LocationContextProviderProps> = (
     setLocationsHistory(filteredLocations);
   }
 
+  const deleteWrongLocationHandler = () => {
+    locationsHistory.shift();
+  }
+
   const contextValue: LocationContextType = {
     location,
     locationsHistory,
     timezone,
     onChangeInitialLocation: changeInitialLocationHandler,
     onChangeLocation: changeLocationHandler,
-    onDeleteLocation: deleteLocationHandler
+    onDeleteLocation: deleteLocationHandler,
+    onDeleteWrongLocation: deleteWrongLocationHandler
   };
 
   return (
