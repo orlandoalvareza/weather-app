@@ -41,21 +41,17 @@
   color: var(--theme-morning-fifth-color);
 }
 
-/* .dawn-theme .error-box {
+.dawn-theme .error-box {
   background: var(--theme-dawn-third-color);
 }
 
-.dawn-theme .error-information h1,
-.dawn-theme .error-information h3 {
+.dawn-theme .error-information h1 {
   color: var(--theme-neutral-fourth-color);
 }
 
+.dawn-theme .error-information h3,
 .dawn-theme .error-information p {
   color: var(--theme-neutral-third-color);
-}
-
-.dayling-theme {
-  background: var(--theme-dayling-third-color);
 }
 
 .dayling-theme .error-information h1,
@@ -67,28 +63,20 @@
   color: var(--theme-neutral-fourth-color);
 }
 
-.sunset-theme {
-  background: var(--theme-sunset-third-color);
-}
-
-.sunset-theme .error-information h1,
-.sunset-theme .error-information h3 {
+.sunset-theme .error-information h1{
   color: var(--theme-neutral-first-color);
 }
 
-.sunset-theme .error-information p {
+.sunset-theme .error-information h3,
+.sunset-theme .error-information p  {
   color: var(--theme-neutral-fourth-color);
 }
 
-.evening-theme {
-  background: var(--theme-evening-third-color);
-}
-
-.evening-theme .error-information h1,
-.evening-theme .error-information h3 {
+.evening-theme .error-information h1{
   color: var(--theme-neutral-first-color);
 }
 
+.evening-theme .error-information h3,
 .evening-theme .error-information p {
   color: var(--theme-neutral-fourth-color);
-} */
+}

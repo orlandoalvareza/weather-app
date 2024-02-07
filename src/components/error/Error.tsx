@@ -1,10 +1,13 @@
+import useTheme from "../../hooks/useTheme";
 import CityInput from "../header/CityInput";
 
 import modules from './Error.module.css';
 
 const Error = () => {
+  const theme = useTheme();
+
   return (
-    <div className={modules["error-container"]}>
+    <div className={`${modules["error-container"]} ${modules[theme]}`}>
       <div className={modules["error-box"]}>
         <div className={modules["error-information"]}>
           <h1>An error has occurred</h1>
