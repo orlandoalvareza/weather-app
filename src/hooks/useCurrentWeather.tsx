@@ -10,6 +10,9 @@ const useCurrentWeather = () => {
   const [currentWeatherData, setCurrentWeatherData] = useState<WeatherData>({});  
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isError, setIsError] = useState<boolean>(false);
+  const [wrongLocation, setWrongLocation] = useState<string>('');
+
+  console.log(location);
 
   useEffect(() => {
     async function getCurrentWeather() {
@@ -21,6 +24,7 @@ const useCurrentWeather = () => {
 
         if (error) {
           setIsError(true);
+          setWrongLocation(location);
         } else {
           setCurrentWeatherData(data);
         }
@@ -37,7 +41,8 @@ const useCurrentWeather = () => {
   return {
     weatherData: currentWeatherData,
     isLoading,
-    isError
+    isError,
+    wrongLocation
   };
 }
 

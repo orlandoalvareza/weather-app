@@ -12,7 +12,7 @@ import Error from "./components/error/Error";
 import './App.css';
 
 function App() {
-  const { isError } = useCurrentWeather();
+  const { isError, wrongLocation } = useCurrentWeather();
   const theme = useTheme();
   useCurrentLocation();
   
@@ -29,7 +29,7 @@ function App() {
           <AditionalInfoSection/>
         </>
       )}
-      {isError && <Error/>}
+      {isError && <Error wrongLocation={wrongLocation}/>}
     </div>
   );
 }
