@@ -50,6 +50,7 @@
 }
 
 .temp-container__temp {
+  font-family: sans-serif;
   font-size: 3.8rem;
   display: flex;
   gap: 5px;

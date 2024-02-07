@@ -30,6 +30,7 @@
 }
 
 .error-information h3 {
+  font-family: sans-serif;
   font-size: 1.6rem;
   font-weight: 500;
   color: var(--theme-morning-fifth-color);
