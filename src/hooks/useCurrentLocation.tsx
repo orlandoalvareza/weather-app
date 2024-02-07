@@ -24,7 +24,7 @@ const useCurrentLocation = () => {
     } else {
       alert('Geolocation is not supported by this browser.')
     }
-  }, []);
+  }, [onChangeInitialLocation]);
 }
 
 export default useCurrentLocation;
