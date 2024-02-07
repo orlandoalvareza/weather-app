@@ -5,6 +5,8 @@ import TabletAditionalInfo from "./TabletAditionalInfo";
 import LaptopAditionalInfo from "./LaptopAditionalInfo";
 import DesktopAditionalInfo from "./DesktopAditionalInfo";
 
+import './AditionalInfoSection.css';
+
 const AditionalInfoSection = () => {
   const isPhone = useScreenSizeListener({ minWidth: 0, maxWidth: 480 });
   const isMiniTablet = useScreenSizeListener({ minWidth: 481, maxWidth: 767 });

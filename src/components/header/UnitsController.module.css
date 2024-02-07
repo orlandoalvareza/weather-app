@@ -89,6 +89,7 @@
   .units-controller span {
     font-size: 22px;
     margin-left: 5px;
+    color: var(--theme-neutral-fifth-color);
   }
   
   .units-indicator {

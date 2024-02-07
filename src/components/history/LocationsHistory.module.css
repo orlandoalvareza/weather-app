@@ -14,19 +14,6 @@
   box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
 }
 
-.stack::-webkit-scrollbar {
-  height: 8px;
-}
-
-.stack::-webkit-scrollbar-track {
-  border-radius: 5px;
-}
-
-.stack::-webkit-scrollbar-thumb {
-  background: #BBBFCA; 
-  border-radius: 5px;
-}
-
 .dawn-theme .chip {
   color: var(--theme-neutral-fourth-color);
   background: var(--theme-dawn-third-color);

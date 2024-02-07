@@ -1,0 +1,44 @@
+.App__section {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+
+.App__back-button,
+.App__next-button {
+  position: absolute;
+  top: 42%;
+  padding: 8px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.App__next-button {
+  right: 0;
+}
+
+.App__icon-button {
+  font-size: 18px;
+}
+
+@media screen and (max-width: 480px) {
+  .App__back-button,
+  .App__next-button {
+    padding: 6px;
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 767px) {
+  .App__back-button,
+  .App__next-button {
+    padding: 6px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .App__back-button,
+  .App__next-button {
+    padding: 6px;
+  }
+}

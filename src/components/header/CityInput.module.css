@@ -94,14 +94,14 @@
 
 @media screen and (max-width: 480px) {
   .city-input {
-    width: 70%;
+    width: 200px;
     margin-right: 5px;
   }
 }
 
 @media screen and (min-width: 481px) and (max-width: 767px) {
   .city-input {
-    width: 70%;
+    width: 240px;
     margin-right: 5px;
   }
 }
