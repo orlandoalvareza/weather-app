@@ -70,7 +70,7 @@ const CurrentWeather: React.FC = () => {
         )}
         <div className={modules["temp-container__aside"]}>
           {isLoading && <Skeleton variant="text" sx={{ fontSize: '20px', width: '110px' }}/>}
-          {!isLoading && <p>Feels like {temperaturesData.feelsLikeWeather} °C</p>}
+          {!isLoading && <p>Feels like {temperaturesData.feelsLikeWeather} {isCelsius ? "°C" : "°F"}</p>}
           <section className={modules["temp-container__aside-section"]}>
             {isLoading ? tempSpanSkeleton : <span>H: {temperaturesData.maxTemp} °</span>}
             {isLoading ? tempSpanSkeleton : <span>L: {temperaturesData.minTemp} °</span>}

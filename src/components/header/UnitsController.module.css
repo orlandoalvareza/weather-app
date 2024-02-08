@@ -22,14 +22,15 @@
   border: 0.5px solid var(--theme-neutral-fifth-color);
   border-radius: 18px;
   cursor: pointer;
+  transition: transform 0.3s ease;
 }
 
 .units-indicator__celsius {
-  float: right;
+  transform: translateX(100%);
 }
 
 .units-indicator__fahrenheit {
-  float: left;
+  transform: translateX(0%);
 }
 
 .dawn-theme span {
