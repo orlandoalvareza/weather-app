@@ -96,4 +96,18 @@
   .units-indicator {
     width: 60px;
   }
+
+  .units-indicator button {
+    transition: none;
+  }
+
+  .units-indicator__celsius {
+    transform: none;
+    float: right;
+  }
+  
+  .units-indicator__fahrenheit {
+    transform: none;
+    float: left;
+  }
 }

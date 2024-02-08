@@ -23,12 +23,12 @@ const UnitsController: React.FC = () => {
     <div className={`${modules["units-controller"]} ${modules[theme]}`}>
       {!isPhone && <span>°F</span>}
       <div className={modules["units-indicator"]}>
+        {isPhone && !ctx.isCelsius && <span>°F</span>}
         <button 
           onClick={TemperatureUnitHandler}
           className={modules[unitStyle]}
         ></button>
         {isPhone && ctx.isCelsius && <span>°C</span>}
-        {isPhone && !ctx.isCelsius && <span>°F</span>}
       </div>
       {!isPhone && <span>°C</span>}
     </div>
